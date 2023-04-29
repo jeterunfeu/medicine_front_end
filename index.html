@@ -7,6 +7,7 @@
     <title>Medicine recommendation application</title>
     <link href="./css/index.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./js/index.js"></script>
 </head>
 <body>
     <div class="loading_container">
@@ -17,6 +18,7 @@
     </div>
 
 <div class="container">
+    <form action="member/login" method="post">
     <table>
         <tr>
             <td>
@@ -26,19 +28,19 @@
 
         <tr>
             <td>
-                ID&nbsp;&nbsp;&nbsp;<input type="text" id="id">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                ID&nbsp;&nbsp;&nbsp;<input type="text" name="memberid" id="id">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
 
         <tr>
             <td>
-                PW&nbsp;&nbsp;<input type="password" id="pw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                PW&nbsp;&nbsp;<input type="password" name="memberpw" id="pw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
 
         <tr>
             <td>
-                <input type="button" value="LOGIN">&nbsp;
+                <input type="submit" value="LOGIN">&nbsp;
             </td>
         </tr>
 
@@ -48,8 +50,8 @@
             </td>
         </tr>
     </table>
+</form>
 </div>
-<script src="./js/index.js"></script>
     
 </body>
 </html>
