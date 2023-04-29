@@ -5,6 +5,8 @@ window.onload = function() {
         location.href = "menu.html";
     });
 
+
+
     comm(param).then(function (res) {
         let table = document.getElementById('medTable');
         let tag = '';
@@ -85,7 +87,7 @@ window.onload = function() {
                 xhr.onload = function () {
                     if (xhr.status == 200) {
                         if(xhr.responseText == null || xhr.responseText == '[]') {
-                            location.href = "prepare.html";
+                            location.href = "null.html";
                         } else {
                             resolve(JSON.parse(xhr.responseText));
                         }
@@ -95,4 +97,13 @@ window.onload = function() {
                 }
         });
     }
+}
+
+function check() {
+    let box = document.getElementById('searchText').value;
+    if(box == '' || box == null) {
+        alert("값을 입력해 주세요");
+        return false;
+    }
+    return true;
 }

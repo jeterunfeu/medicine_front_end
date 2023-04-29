@@ -1,0 +1,25 @@
+#menu {
+    width: 300px;
+    background-color: lightcoral;
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-left: 20px;
+    margin-top:50px;
+    margin-bottom:20px;
+}
+
+#menu:hover {
+    background-color: red;
+    color: yellow;
+    font-weight: bolder;
+}
+
+#component {
+    text-align: center;
+    margin-top: 100px;
+}
+#headache {
+    width:80px;
+    height:80px;
+}
