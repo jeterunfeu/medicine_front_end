@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    window.onload = function(){
+
+        comm().then(function(res) {
+            let tag = '';
+            let table = document.getElementById('table');
+            for(let i = 0; i < res.length; i ++) {
+                tag += `<tr><td>${res[i].membernum}</td><td>${res[i].memberid}</td></tr>`;
+            }
+            table.innerHTML = tag;
+        });
+
+        function comm() {
+            return new Promise(function (resolve) {
+            let url = "http://localhost:10201/medicine/member";
+            let test;
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('GET', url, true);
+
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
+
+            xhr.send();
+
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    test = JSON.parse(xhr.responseText);
+                    resolve(test);
+                } else {
+                    console.log('failed')
+                }
+            }
+        })
+     }
+    
+  }
+
+    </script>
+</head>
+<body>
+    test
+    <table id="table">
+
+    </table>
+</body>
+</html>
