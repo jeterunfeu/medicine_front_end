@@ -16,7 +16,7 @@ img {
 }
 
 #menu {
-    width: 300px;
+    width: 200px;
     background-color: lightcoral;
     text-align: center;
     padding-top:20px;
@@ -30,4 +30,13 @@ img {
     background-color: red;
     color: yellow;
     font-weight: bolder;
+}
+
+#head{
+    height: 40px;
+    width: auto;
+}
+#ment, #arm, #leg, #stomach, #haed{
+    width: 200px;
+    height: auto;
 }
