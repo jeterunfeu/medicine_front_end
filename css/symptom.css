@@ -1,0 +1,15 @@
+#headache{
+    width: 100px;
+    height: auto;
+}
+
+table{
+    text-align: center;
+    margin: auto;
+    column-gap: 100px;
+    border-spacing: 100px;
+}
+#headment{
+    width: 80px;
+    height: auto;
+}
