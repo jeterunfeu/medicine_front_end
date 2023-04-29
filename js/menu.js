@@ -17,7 +17,7 @@ window.onload = function () {
         location.href="diagnosis.html";
     });
     medicine.addEventListener('click', function() {
-        location.href="";
+        location.href="medicine.html";
     });
     history.addEventListener('click', function() {
         location.href="";

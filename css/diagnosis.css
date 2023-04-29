@@ -1,8 +1,56 @@
 *{
     font-family: 'Do Hyeon', sans-serif;
     text-align: center;
-    font-size: 100%;
+}
+h2 {
+    text-align: center;
+    color: purple;
 }
 table{
-    border-spacing: 15px;
+    border-collapse:collapse;
+    width: 300px;
+    margin: auto;
+    border: 1px dotted blue;
+}
+
+tr,td {
+    border: 1px dotted blue;
+}
+
+#container {
+    margin-top: 100px;
+}
+
+#question {
+    height: 300px;
+}
+#wrong, #right{
+    width: 50%;
+    font-size: 4em;
+    height: 100px;
+}
+#wrong:hover{
+    color: white;
+    background-color: red;
+}
+#right:hover{
+    color: white;
+    background-color: red;
+}
+
+#menu {
+    width: 300px;
+    background-color: lightcoral;
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-left: 20px;
+    margin-top:50px;
+    margin-bottom:20px;
+}
+
+#menu:hover {
+    background-color: red;
+    color: yellow;
+    font-weight: bolder;
 }

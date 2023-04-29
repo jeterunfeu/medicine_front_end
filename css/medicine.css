@@ -1,0 +1,38 @@
+#menu {
+    width: 300px;
+    background-color: lightcoral;
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-left: 20px;
+    margin-bottom:20px;
+}
+
+#menu:hover {
+    background-color: red;
+    color: yellow;
+    font-weight: bolder;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px dotted blue;
+    margin:auto;
+    width: 300px;
+}
+
+tr,td{
+    border: 1px dotted blue;
+}
+
+.head{
+    background-color: aquamarine;
+}
+
+#container {
+   margin: auto;
+}
+#search {
+    margin-top: 50px;
+    text-align: center;
+}

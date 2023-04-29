@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug select</title>
+    <link href="./css/medicine.css" rel="stylesheet">
+    <script src="./js/medicine.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="search">
+            <form action="medicine.html" method="get">
+            <select id="searchType" name="type">
+                <option value="medname">약제명</option>
+                <option value="medco">제조회사</option>
+                <option value="takemed">복용법</option>
+                <option value="medcycle">복용주기</option>
+                <option value="ingredient">성분</option>
+            </select>
+            <input type="text" name="value" id="searchText">
+            <input type="submit" value="검색">
+        </form>
+        </div>
+        <br>
+        <table id="medTable">
+        </table>
+        <br>
+        <div id="menu"> 메뉴 화면 </div>
+    </div>
+</body>
+</html>
