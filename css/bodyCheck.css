@@ -13,6 +13,7 @@ tr, td{
 }
 img {
     width: 350px;
+    display: block;
 }
 
 #menu {
