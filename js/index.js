@@ -29,3 +29,7 @@ $(window).load(function(){
 //             }
 //         });
 //     }
+
+function signUpFun() {
+    location.href="signup.html";
+}

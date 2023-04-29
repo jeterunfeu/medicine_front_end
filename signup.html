@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script src="./js/signup.js"></script>
+</head>
+<body>
+    <h2> 회원가입 </h2>
+
+    <!-- 회원가입 폼 -->
+    <div class="login">
+        <form>
+        <table>
+            <tr>
+                <th>ID</th>
+                <td>
+                    &nbsp;&nbsp;<input type="text" name="memberid" id="memberid">
+                    &nbsp;<input type="button" value="중복검사">
+                </td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>
+                    &nbsp; <input type="password" name="memberpw" id="memberpw">
+                </td>
+            </tr>
+            <tr>
+                <th>Password 확인</th>
+                <td>
+                    &nbsp; <input type="password" name="memberpw2" id="memberpw2">
+                </td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>
+                    &nbsp; <input type="text" name="membername" id="membername">
+                </td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>
+                    &nbsp; <input type="text" name="email" id="email" placeholder="@를 포함한 Email">
+                </td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>
+                    &nbsp; <input type="number" name="phone" id="phone">
+                </td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>
+                    &nbsp; <input type="text" name="address" id="address">
+                </td>
+            </tr>
+        </table> 
+        
+        <!-- 버튼 -->
+        <div class="button">
+            <input type="button" value="가입하기" onclick="signUpCheck()">
+            <input type="reset" value="취소하기">
+        </form>
+        </div>
+
+    </div>
+    </body>
+</html>
