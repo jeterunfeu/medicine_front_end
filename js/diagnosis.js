@@ -28,7 +28,7 @@ window.onload = function() {
     function comm(param) {
         let word = (param == null)  ? 2 : param;
         return new Promise(function (resolve) {
-            let url = 'https://192.168.0.6:10201/medicine/survey/'+word;
+            let url = 'https://112.133.178.18:10201/medicine/survey/'+word;
             const xhr = new XMLHttpRequest();
     
             xhr.open('GET', url, true);
