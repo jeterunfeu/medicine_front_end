@@ -13,3 +13,7 @@ table{
     width: 80px;
     height: auto;
 }
+
+#symptom_text{
+    width: 400px;
+}
