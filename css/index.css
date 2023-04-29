@@ -11,6 +11,9 @@ table{
 td{
     padding: 5px;
 }
+*{
+    font-family: 'Do Hyeon', sans-serif;
+}
 
 /* Loading */
 .loading_container {
