@@ -22,7 +22,7 @@ function comm() {
         let ph = document.getElementById('phone').value;
         let addr = document.getElementById('address').value;
 
-        let url = "http://localhost:10201/medicine/member";
+        let url = "https://192.168.0.6:10201/medicine/member";
 
         let data = JSON.stringify({
             memberid: id,
