@@ -1,3 +1,6 @@
+function back() {
+    location.href="index.html";
+}
 function signUpCheck(){
     console.log("here");
    check().then(function(res) {

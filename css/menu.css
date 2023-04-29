@@ -1,0 +1,34 @@
+#menucontainer {
+    width: 250px;
+    margin:auto;
+    margin-top: 60px;
+}
+.menu {
+    background-color: lightgreen;
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+#logout {
+    background-color: lightcoral;
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.menu:hover {
+    background-color: green;
+    color: yellow;
+    font-weight: bolder;
+}
+
+#logout:hover {
+    background-color: red;
+    color: yellow;
+    font-weight: bolder;
+}

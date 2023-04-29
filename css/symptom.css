@@ -1,4 +1,4 @@
-#headache{
+/* #headache{
     width: 100px;
     height: auto;
 }
@@ -16,4 +16,50 @@ table{
 
 #symptom_text{
     width: 400px;
+} */
+h2 {
+    text-align: center;
+    color:blueviolet;
+}
+table {
+    border-collapse:collapse;
+    margin: auto;
+    border: 1px dotted lightseagreen;
+    width: 300px;
+}
+
+#container {
+    margin-top: 50px;
+}
+
+tr,td {
+
+    border : 1px dotted lightseagreen;
+    padding: 20px;
+}
+
+#menu {
+    width: 300px;
+    background-color: lightcoral;
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-left: 20px;
+    margin-top:50px;
+    margin-bottom:20px;
+}
+
+#menu:hover {
+    background-color: red;
+    color: yellow;
+    font-weight: bolder;
+}
+
+.head {
+    background-color:blanchedalmond;
+}
+.blank {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
 }
