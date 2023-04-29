@@ -50,28 +50,28 @@ window.onload = function() {
     
             console.log(part);
             if(type == '' || type == null) {
-                url = 'https://192.168.0.6:10201/medicine/med';
+                url = 'https://112.133.178.18:10201/medicine/med';
             }
             if(type == 'medname') {
-                url = 'https://192.168.0.6:10201/medicine/med/condition?medname='+value;
+                url = 'https://112.133.178.18:10201/medicine/med/condition?medname='+value;
             }
             if(type == 'medco') {
-                url = 'https://192.168.0.6:10201/medicine/med/condition?medco='+value;
+                url = 'https://112.133.178.18:10201/medicine/med/condition?medco='+value;
             }
             if(type == 'takemed') {
-                url = 'https://192.168.0.6:10201/medicine/med/condition?takemed='+value;
+                url = 'https://112.133.178.18:10201/medicine/med/condition?takemed='+value;
             }
             if(type == 'medcycle') {
-                url = 'https://192.168.0.6:10201/medicine/med/condition?medcycle='+value;
+                url = 'https://112.133.178.18:10201/medicine/med/condition?medcycle='+value;
             }
             if(type == 'ingredient') {
-                url = 'https://192.168.0.6:10201/medicine/med/condition?ingredient='+value;
+                url = 'https://112.133.178.18:10201/medicine/med/condition?ingredient='+value;
             }
             if(part != '' && part != null) {
-                url = 'https://192.168.0.6:10201/medicine/med/symptom?signpart='+part+'&signfirst='+firstsign+'&signsecond='+secondsign;
+                url = 'https://112.133.178.18:10201/medicine/med/symptom?signpart='+part+'&signfirst='+firstsign+'&signsecond='+secondsign;
             }
             if(signnum != '' && signnum != null) {
-                url = 'https://192.168.0.6:10201/medicine/med/symptom?signnum='+signnum;
+                url = 'https://112.133.178.18:10201/medicine/med/symptom?signnum='+signnum;
             }
     
             const xhr = new XMLHttpRequest();

@@ -25,7 +25,7 @@ window.onload = function() {
     function comm(param) {
         let word = (param != null || param != '') ? param : null;
         return new Promise(function (resolve) {
-        let url = 'https://192.168.0.6:10201/medicine/showsign/group?part='+word;
+        let url = 'https://112.133.178.18:10201/medicine/showsign/group?part='+word;
         const xhr = new XMLHttpRequest();
 
         xhr.open('GET', url, true);
