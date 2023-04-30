@@ -13,23 +13,24 @@
 }
 
 #logout {
-    background-color: lightcoral;
+    background-color: rgb(200, 54, 54);
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
     margin-top:20px;
     margin-bottom:20px;
+    color: white;
 }
 
 .menu:hover {
-    background-color: green;
-    color: yellow;
+    background-color: white;
+    color: rgb(200, 54, 54);
     font-weight: bolder;
 }
 
 #logout:hover {
-    background-color: red;
-    color: yellow;
+    background-color: white;
+    color: rgb(200, 54, 54);
     font-weight: bolder;
 }
 
