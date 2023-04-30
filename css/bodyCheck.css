@@ -29,8 +29,8 @@ img {
 }
 
 #menu:hover {
-    background-color: red;
-    color: yellow;
+    background-color:rgb(200, 54, 54);
+    color: white;
     font-weight: bolder;
 }
 
