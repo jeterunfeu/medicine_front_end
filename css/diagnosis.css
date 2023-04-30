@@ -4,7 +4,7 @@
 }
 h2 {
     text-align: center;
-    color: purple;
+    color: rgb(200, 54, 54);
 }
 table{
     border-collapse:collapse;
@@ -22,7 +22,8 @@ tr,td {
 }
 
 #question {
-    height: 300px;
+    height: 200px;
+    width: 150px;
 }
 #wrong, #right{
     width: 50%;
@@ -30,17 +31,16 @@ tr,td {
     height: 100px;
 }
 #wrong:hover{
-    color: white;
-    background-color: red;
+    color: rgb(200, 54, 54);
 }
 #right:hover{
-    color: white;
-    background-color: red;
+    color: rgb(200, 54, 54);
 }
 
 #menu {
-    width: 300px;
-    background-color: lightcoral;
+    width: 200px;
+    background-color:rgb(200, 54, 54);
+    color: white;
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
@@ -51,7 +51,16 @@ tr,td {
 }
 
 #menu:hover {
-    background-color: red;
-    color: yellow;
+    background-color:white;
+    color:rgb(200, 54, 54);
     font-weight: bolder;
+}
+#small_logo{
+    height: 50px;
+    width: auto;
+    text-align: left;
+}
+#logo_small{
+    height: 35px;
+    width: auto;
 }

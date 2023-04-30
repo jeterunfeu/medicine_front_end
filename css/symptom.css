@@ -19,7 +19,6 @@ table{
 } */
 h2 {
     text-align: center;
-    color:green;
 }
 table {
     border-collapse:collapse;
@@ -39,8 +38,9 @@ tr,td {
 }
 
 #menu {
-    width: 300px;
-    background-color: lightcoral;
+    width: 200px;
+    background-color: rgb(200, 54, 54);
+    color: white;
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
@@ -51,8 +51,8 @@ tr,td {
 }
 
 #menu:hover {
-    background-color: red;
-    color: yellow;
+    background-color: white;
+    color:rgb(200, 54, 54);
     font-weight: bolder;
 }
 
@@ -63,4 +63,17 @@ tr,td {
     border-left: none;
     border-right: none;
     border-bottom: none;
+}
+*{
+    font-family: 'Do Hyeon', sans-serif;
+    text-align: center;
+}
+#small_logo{
+    height: 50px;
+    width: auto;
+    text-align: left;
+}
+#logo_small{
+    height: 35px;
+    width: auto;
 }

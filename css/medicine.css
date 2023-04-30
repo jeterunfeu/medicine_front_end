@@ -1,6 +1,7 @@
 #menu {
-    width: 300px;
-    background-color: lightcoral;
+    width: 200px;
+    background-color:  rgb(200, 54, 54);
+    color: white;
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
@@ -10,8 +11,8 @@
 }
 
 #menu:hover {
-    background-color: red;
-    color: yellow;
+    color:  rgb(200, 54, 54);
+    background-color: white;
     font-weight: bolder;
 }
 
@@ -36,4 +37,17 @@ tr,td{
 #search {
     margin-top: 50px;
     text-align: center;
+}
+*{
+    font-family: 'Do Hyeon', sans-serif;
+    text-align: center;
+}
+#small_logo{
+    height: 50px;
+    width: auto;
+    text-align: left;
+}
+#logo_small{
+    height: 35px;
+    width: auto;
 }
