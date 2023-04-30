@@ -16,3 +16,12 @@ table{
 h2{
     text-align: center;
 }
+#small_logo{
+    height: 50px;
+    width: auto;
+    text-align: left;
+}
+#logo_small{
+    height: 35px;
+    width: auto;
+}

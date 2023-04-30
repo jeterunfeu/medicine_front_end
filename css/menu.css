@@ -4,7 +4,7 @@
     margin-top: 60px;
 }
 .menu {
-    background-color: lightgreen;
+    background-color: lightgray;
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
@@ -31,4 +31,19 @@
     background-color: red;
     color: yellow;
     font-weight: bolder;
+}
+
+*{
+    font-family: 'Do Hyeon', sans-serif;
+    text-align: center;
+}
+
+#small_logo{
+    height: 50px;
+    width: auto;
+    text-align: left;
+}
+#logo_small{
+    height: 35px;
+    width: auto;
 }

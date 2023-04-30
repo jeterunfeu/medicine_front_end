@@ -16,14 +16,16 @@ img {
 }
 
 #menu {
-    width: 200px;
-    background-color: lightcoral;
+    width: 80px;
+    height: 15px;
+    background-color: rgb(203, 203, 203);
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
-    margin-left: 70px;
     margin-top:50px;
     margin-bottom:20px;
+    margin-left: 70px;
+    font-size: small;
 }
 
 #menu:hover {
@@ -33,10 +35,28 @@ img {
 }
 
 #head{
-    height: 40px;
+    height: 50px;
     width: auto;
+    display: block;
+    margin: auto;
 }
-#ment, #arm, #leg, #stomach, #haed{
-    width: 200px;
+#ment, #arm, #leg, #stomach{
+    width: 180px;
     height: auto;
+    display: block;
+    margin: auto;
+}
+*{
+    font-family: 'Do Hyeon', sans-serif;
+    text-align: center;
+}
+
+#small_logo{
+    height: 50px;
+    width: auto;
+    text-align: left;
+}
+#logo_small{
+    height: 35px;
+    width: auto;
 }
