@@ -20,10 +20,10 @@ window.onload = function () {
         location.href="medicine.html";
     });
     history.addEventListener('click', function() {
-        location.href="";
+        location.href="prepare.html";
     });
     info.addEventListener('click', function() {
-        location.href="";
+        location.href="prepare.html";
     });
     out.addEventListener('click', function() {
         let result = confirm('로그아웃 하시겠습니까?');
