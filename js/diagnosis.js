@@ -26,7 +26,7 @@ window.onload = function() {
     });
 
     function comm(param) {
-        let word = (param == null)  ? 2 : param;
+        let word = (param == null)  ? 1 : param;
         return new Promise(function (resolve) {
             let url = 'https://112.133.178.18:10201/medicine/survey/'+word;
             const xhr = new XMLHttpRequest();
