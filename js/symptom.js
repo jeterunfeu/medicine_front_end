@@ -16,19 +16,30 @@ window.onload = function() {
 
     comm(param).then(function(res) {
         let table = document.getElementById('sympthom');
+        let pagination = document.getElementById('pagination');
+
         let tag = '';
-        for(let i = 0; i < res.length; i++) {
+        let page = '';
+
+        for(let i = 0; i < res.data.length; i++) {
             tag += `<tr>
-            <td class="head">부위 : ${res[i].signpart}</td>
+            <td class="head">부위 : ${res.data[i].signpart}</td>
             </tr>
             <tr>
-            <td>증상 : ${res[i].signfirst}</td>
+            <td>증상 : ${res.data[i].signfirst}</td>
             </tr>
             <tr>
-            <td>세부 증상 : <a href='medicine.html?signpart=${res[i].signpart}&signfirst=${res[i].signfirst}&signsecond=${res[i].signsecond}'>
-            ${res[i].signsecond}</a></td></tr>`;
+            <td>세부 증상 : <a href='medicine.html?signpart=${res[i].data.signpart}&signfirst=${res[i].signfirst}&signsecond=${res[i].signsecond}'>
+            ${res.data[i].signsecond}</a></td></tr>`;
         }
+        page = `<table><tr><td colspan="2">${res.currentPage}/${res.totalPageCount}</td></tr>
+        <tr><td>${res.currentPage == 1 ? 'X' : `<a href='medicine.html?page=${res.currentPage - 1}'><</a>`}
+        </td><td>${res.currentPage == res.totalPageCount ? 'X' : `<a href='medicine.html?page=${res.currentPage + 1}'>></a>`}</td></tr>
+        </table>`
+
         table.innerHTML = tag;
+        pagination.innerHTML = page;
+
     });
 
     function comm(param) {
