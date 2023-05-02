@@ -9,30 +9,38 @@ window.onload = function() {
 
     comm(param).then(function (res) {
         let table = document.getElementById('medTable');
+        let pagination = document.getElementById('pagination');
         let tag = '';
-        console.log(res.length);
-        for(let i = 0; i < res.length; i++) {
+        let page = '';
+        console.log(res.data.length);
+        for(let i = 0; i < res.data.length; i++) {
             tag += `<tr class="head">
-                        <td colspan="2">약제명 : ${res[i].medname}</td>
+                        <td colspan="2">약제명 : ${res.data[i].medname}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">제약회사 : ${res[i].medco}</td>
+                        <td colspan="2">제약회사 : ${res.data[i].medco}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">가격 : ${res[i].price}</td>
+                        <td colspan="2">가격 : ${res.data[i].price}</td>
                     </tr>
                     <tr>
-                        <td>복용법 : ${res[i].takemed}</td><td>복용횟수 : ${res[i].medcycle}</td>
+                        <td>복용법 : ${res.data[i].takemed}</td><td>복용횟수 : ${res.data[i].medcycle}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">성분 : ${res[i].ingredient}</td>
+                        <td colspan="2">성분 : ${res.data[i].ingredient}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">비고 : ${res[i].note}</td>
+                        <td colspan="2">비고 : ${res.data[i].note}</td>
                     </tr>
                     `;
         }
+
+        page = `<table><tr><td colspan="2">${res.currentPage}/${res.totalPageCount}</td></tr>
+        <tr><td>${res.currentPage == 1 ? 'X' : `<a href='medicine.html?page=${res.currentPage - 1}'><</a>`}
+        </td><td>${res.currentPage == res.totalPageCount ? 'X' : `<a href='medicine.html?page=${res.currentPage + 1}'>></a>`}</td></tr>
+        </table>`
         table.innerHTML = tag;
+        pagination.innerHTML = page;
     });
 
     function comm(param) {
@@ -49,31 +57,32 @@ window.onload = function() {
             let firstsign = param.get('signfirst');
             let secondsign = param.get('signsecond');
             let signnum = param.get('signnum');
+            let page = param.get('page');
     
             console.log(part);
             if(type == '' || type == null) {
-                url = 'https://112.133.178.18:10201/medicine/med';
+                url = 'https://112.133.178.18:10201/medicine/med/condition?page='+page;
             }
             if(type == 'medname') {
-                url = 'https://112.133.178.18:10201/medicine/med/condition?medname='+value;
+                url = 'https://112.133.178.18:10201/medicine/med/condition?page='+page+'&medname='+value;
             }
             if(type == 'medco') {
-                url = 'https://112.133.178.18:10201/medicine/med/condition?medco='+value;
+                url = 'https://112.133.178.18:10201/medicine/med/condition?page='+page+'&medco='+value;
             }
             if(type == 'takemed') {
-                url = 'https://112.133.178.18:10201/medicine/med/condition?takemed='+value;
+                url = 'https://112.133.178.18:10201/medicine/med/condition?page='+page+'&takemed='+value;
             }
             if(type == 'medcycle') {
-                url = 'https://112.133.178.18:10201/medicine/med/condition?medcycle='+value;
+                url = 'https://112.133.178.18:10201/medicine/med/condition?page='+page+'&medcycle='+value;
             }
             if(type == 'ingredient') {
-                url = 'https://112.133.178.18:10201/medicine/med/condition?ingredient='+value;
+                url = 'https://112.133.178.18:10201/medicine/med/condition?page='+page+'&ingredient='+value;
             }
             if(part != '' && part != null) {
-                url = 'https://112.133.178.18:10201/medicine/med/symptom?signpart='+part+'&signfirst='+firstsign+'&signsecond='+secondsign;
+                url = 'https://112.133.178.18:10201/medicine/med/symptom?page='+page+'&signpart='+part+'&signfirst='+firstsign+'&signsecond='+secondsign;
             }
             if(signnum != '' && signnum != null) {
-                url = 'https://112.133.178.18:10201/medicine/med/symptom?signnum='+signnum;
+                url = 'https://112.133.178.18:10201/medicine/med/symptom?page='+page+'&signnum='+signnum;
             }
     
             const xhr = new XMLHttpRequest();
