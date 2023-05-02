@@ -45,26 +45,28 @@ window.onload = function() {
     function comm(param) {
         let type = (param.get('type') != null || param.get('type') != '') ? param.get('type') : null;
         let value = (param.get('value') != null || param.get('value') != '') ? param.get('value') : null;
+        let page = (param.get('page') == null || param.get('page')) == '' ? 1 : param.get('page');
+
         let url = '';
 
         return new Promise(function (resolve) {
         if(part != null) {
             if(type == '' || type == null) {
-                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part;
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?page='+page+'&signpart='+part;
             } else if(type == 'signfirst') {
-                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part+'&signfirst='+value;
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?page='+page+'&signpart='+part+'&signfirst='+value;
             } else if(type == 'signsecond') {
-                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part+'&signsecond='+value;
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?page='+page+'&signpart='+part+'&signsecond='+value;
             }
         } else {
             if(type == '' || type == null) {
-                url = 'https://112.133.178.18:10201/medicine/showsign/group';
+                url = 'https://112.133.178.18:10201/medicine/showsign/grouppage='+page+';
             } else if(type == 'signfirst') {
-                url = 'https://112.133.178.18:10201/medicine/showsign/group?signfirst='+value;
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?page='+page+'&signfirst='+value;
             } else if(type == 'signsecond') {
-                url = 'https://112.133.178.18:10201/medicine/showsign/group?signsecond='+value;
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?page='+page+'&signsecond='+value;
             } else if(type == 'signpart') {
-                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+value;
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?page='+page+'&signpart='+value;
             }
         }
         const xhr = new XMLHttpRequest();
