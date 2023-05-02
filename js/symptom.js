@@ -45,7 +45,7 @@ window.onload = function() {
     function comm(param) {
         let type = (param.get('type') != null || param.get('type') != '') ? param.get('type') : null;
         let value = (param.get('value') != null || param.get('value') != '') ? param.get('value') : null;
-        let page = (param.get('page') == null || param.get('page')) == '' ? 1 : param.get('page');
+        let page = (param.get('page') == null || param.get('page')) ? 1 : param.get('page');
 
         let url = '';
 
