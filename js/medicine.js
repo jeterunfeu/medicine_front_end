@@ -18,6 +18,9 @@ window.onload = function() {
                         <td colspan="2">약제명 : ${res.data[i].medname}</td>
                     </tr>
                     <tr>
+                    <td colspan="2">${res.data[i].picture}</td>
+                    </tr>
+                    <tr>
                         <td colspan="2">제약회사 : ${res.data[i].medco}</td>
                     </tr>
                     <tr>
@@ -31,6 +34,9 @@ window.onload = function() {
                     </tr>
                     <tr>
                         <td colspan="2">비고 : ${res.data[i].note}</td>
+                    </tr>
+                    <tr>
+                    <td>약품선택</td><td>${res.data[i].star} 리뷰보기</td>
                     </tr>
                     `;
         }
