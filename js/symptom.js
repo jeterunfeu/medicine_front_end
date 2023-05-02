@@ -29,7 +29,7 @@ window.onload = function() {
             <td>증상 : ${res.data[i].signfirst}</td>
             </tr>
             <tr>
-            <td>세부 증상 : <a href='medicine.html?signpart=${res[i].data.signpart}&signfirst=${res[i].signfirst}&signsecond=${res[i].signsecond}'>
+            <td>세부 증상 : <a href='medicine.html?signpart=${res.data[i].signpart}&signfirst=${res.data[i].signfirst}&signsecond=${res.data[i].signsecond}'>
             ${res.data[i].signsecond}</a></td></tr>`;
         }
         page = `<table><tr><td colspan="2">${res.currentPage}/${res.totalPageCount}</td></tr>
