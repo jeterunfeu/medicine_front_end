@@ -60,7 +60,7 @@ window.onload = function() {
             }
         } else {
             if(type == '' || type == null) {
-                url = 'https://112.133.178.18:10201/medicine/showsign/grouppage='+page+';
+                url = 'https://112.133.178.18:10201/medicine/showsign/grouppage='+page;
             } else if(type == 'signfirst') {
                 url = 'https://112.133.178.18:10201/medicine/showsign/group?page='+page+'&signfirst='+value;
             } else if(type == 'signsecond') {
