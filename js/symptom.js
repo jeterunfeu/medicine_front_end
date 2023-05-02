@@ -1,6 +1,15 @@
 window.onload = function() {
     let menu = document.getElementById('menu');
-    let param = new URLSearchParams(location.search).get('part');
+    let param = new URLSearchParams(location.search);
+    let part = (param.get('part') != null || param.get('part') != '') ? param.get('part') : null;
+    let option = document.getElementById('part');
+
+    if(part != null) {
+        option.setAttribute('style', 'display:none');
+    } else {
+        option.setAttribute('style', 'display:block');
+    }
+
     menu.addEventListener('click', function() {
         location.href = "menu.html";
     });
@@ -23,9 +32,30 @@ window.onload = function() {
     });
 
     function comm(param) {
-        let word = (param != null || param != '') ? param : null;
+        let type = (param.get('type') != null || param.get('type') != '') ? param.get('type') : null;
+        let value = (param.get('value') != null || param.get('value') != '') ? param.get('value') : null;
+        let url = '';
+
         return new Promise(function (resolve) {
-        let url = 'https://112.133.178.18:10201/medicine/showsign/group?part='+word;
+        if(part != null || part != '') {
+            if(type == '' || type == null) {
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part;
+            } else if(type == 'signfirst') {
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part+'signfirst='+value;
+            } else if(type == 'signsecond') {
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part+'signsecond='+value;
+            }
+        } else {
+            if(type == '' || type == null) {
+                url = 'https://112.133.178.18:10201/medicine/showsign/group';
+            } else if(type == 'signfirst') {
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?signfirst='+value;
+            } else if(type == 'signsecond') {
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?signsecond='+value;
+            } else if(type == 'signpart') {
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+value;
+            }
+        }
         const xhr = new XMLHttpRequest();
 
         xhr.open('GET', url, true);
@@ -47,4 +77,13 @@ window.onload = function() {
         }
     });
     }
+}
+
+function check() {
+    let box = document.getElementById('searchText').value;
+    if(box == '' || box == null) {
+        alert("값을 입력해 주세요");
+        return false;
+    }
+    return true;
 }
