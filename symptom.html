@@ -17,17 +17,17 @@
     <h2> 증상 리스트 </h2>
 
     <div id="search">
-        <form action="symptom.html" method="get" onsubmit="return check()">
+        <!-- <form action="symptom.html" method="get" onsubmit="return check()"> -->
         <select id="searchType" name="type">
             <option value="signfirst">증상</option>
             <option value="signsecond">세부증상</option>
             <option value="signpart" id="part">부위</option>
         </select>
         <input type="text" name="value" id="searchText">
-        <input type="submit" value="검색">
-        </form>
+        <input type="button" value="검색" onclick="check()">
+        <!-- </form> -->
     </div>
-
+    <br>
     <table id="sympthom">
         <!-- <tr>
             <td colspan="2">

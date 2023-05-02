@@ -37,13 +37,13 @@ window.onload = function() {
         let url = '';
 
         return new Promise(function (resolve) {
-        if(part != null || part != '') {
+        if(part != null) {
             if(type == '' || type == null) {
                 url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part;
             } else if(type == 'signfirst') {
-                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part+'signfirst='+value;
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part+'&signfirst='+value;
             } else if(type == 'signsecond') {
-                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part+'signsecond='+value;
+                url = 'https://112.133.178.18:10201/medicine/showsign/group?signpart='+part+'&signsecond='+value;
             }
         } else {
             if(type == '' || type == null) {
@@ -80,10 +80,19 @@ window.onload = function() {
 }
 
 function check() {
+    let param = new URLSearchParams(location.search);
+    let part = (param.get('part') != null || param.get('part') != '') ? param.get('part') : null;
+    let type = document.getElementById('searchType').value;
     let box = document.getElementById('searchText').value;
     if(box == '' || box == null) {
         alert("값을 입력해 주세요");
-        return false;
+        return;
     }
-    return true;
+    if(part == '' || part == null) {
+        location.href="symptom.html?type="+type+"&value="+box;
+
+    } else {
+        location.href="symptom.html?part="+part+"&type="+type+"&value="+box;
+    }
+
 }
