@@ -20,7 +20,7 @@ window.onload = function () {
         location.href="medicine.html";
     });
     history.addEventListener('click', function() {
-        location.href="prepare.html";
+        location.href="history.html";
     });
     info.addEventListener('click', function() {
         location.href="signup.html?type=modify";

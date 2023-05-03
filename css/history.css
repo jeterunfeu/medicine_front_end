@@ -1,0 +1,53 @@
+#menu {
+    width: 200px;
+    background-color:  rgb(200, 54, 54);
+    color: white;
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:20px;
+}
+
+#menu:hover {
+    color:  rgb(200, 54, 54);
+    background-color: white;
+    font-weight: bolder;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px dotted blue;
+    margin:auto;
+    width: 300px;
+}
+
+tr,td{
+    border: 1px dotted blue;
+}
+
+.head{
+    background-color: aquamarine;
+}
+
+#container {
+   margin: auto;
+}
+#search {
+    margin-top: 50px;
+    text-align: center;
+}
+*{
+    font-family: 'Do Hyeon', sans-serif;
+    text-align: center;
+}
+#small_logo{
+    height: 50px;
+    width: auto;
+    text-align: left;
+}
+#logo_small{
+    height: 35px;
+    width: auto;
+}

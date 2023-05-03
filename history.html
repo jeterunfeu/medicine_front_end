@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug history</title>
+    <link href="./css/history.css" rel="stylesheet">
+    <script src="./js/history.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="search">
+            <form action="history.html" method="get" onsubmit="return check()">
+            <select id="searchType" name="type">
+                <option value="medname">약제명</option>
+                <option value="medco">제조회사</option>
+                <option value="signpart">증상부위</option>
+                <option value="signfirst">주요증상</option>
+                <option value="signsecond">세부증상</option>
+            </select>
+            <input type="text" name="value" id="searchText">
+            <input type="submit" value="검색">
+        </form>
+        </div>
+        <br>
+        <table id="historytable">
+        </table>
+        <br>
+        <div id="pagination"></div> <br>
+        <div id="menu"> 메뉴 화면 </div>
+    </div>
+</body>
+</html>
