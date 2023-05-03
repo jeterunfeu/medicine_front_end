@@ -40,8 +40,8 @@ window.onload = function() {
         }
 
         page = `<table><tr><td colspan="2">${res.currentPage}/${res.totalPageCount}</td></tr>
-        <tr><td>${res.currentPage == 1 ? 'X' : `<a href='history.html?page=${res.currentPage - 1}'><</a>`}
-        </td><td>${res.currentPage == res.totalPageCount ? 'X' : `<a href='history.html?page=${res.currentPage + 1}'>></a>`}</td></tr>
+        <tr><td>${res.currentPage <= 1 ? 'X' : `<a href='history.html?page=${res.currentPage - 1}'><</a>`}
+        </td><td>${res.currentPage >= res.totalPageCount ? 'X' : `<a href='history.html?page=${res.currentPage + 1}'>></a>`}</td></tr>
         </table>`
         table.innerHTML = tag;
         pagination.innerHTML = page;
