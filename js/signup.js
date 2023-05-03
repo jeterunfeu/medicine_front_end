@@ -162,7 +162,7 @@ function check() {
             resolve(false);
             return;
         }
-        if(!duplitext.value.includes('사용가능')){
+        if(duplitext.value == null || duplitext.value == "" || !duplitext.value.includes('사용가능')){
             alert('아이디 중복검사를 해주세요.');
             address.focus();
             resolve(false);
