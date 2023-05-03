@@ -86,8 +86,8 @@ window.onload = function() {
             let url = 'https://112.133.178.18:10201/medicine/personalHistory';
     
             let data = JSON.stringify({
-                membernum: data1.membernum,
-                mednum: data2.mednum
+                membernum: data2.membernum,
+                mednum: data1.mednum
             });	
     
             const xhr = new XMLHttpRequest();
