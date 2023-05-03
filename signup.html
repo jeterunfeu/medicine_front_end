@@ -20,6 +20,7 @@
     <!-- 회원가입 폼 -->
 
         <form>
+        <span id="duplicatedalert"></span>
         <table>
             <tr>
                 <th>ID</th>
@@ -27,7 +28,7 @@
                     &nbsp;&nbsp;<input type="text" name="memberid" id="memberid">
                 </td>
                 <td>
-                    <input type="button" value="중복검사">
+                    <input type="button" value="중복검사" onclick="duplicatedCheck()">
                 </td>
             </tr>
             <tr>

@@ -1,8 +1,23 @@
 function back() {
     location.href="index.html";
 }
+
+function duplicatedCheck() {
+    let id = document.getElementById('memberid');
+    let alert = document.getElementById('duplicatedalert');
+
+    checkComm(id.value).then(function(res){
+        if(res) {
+            alert.innerText="사용가능한 아이디입니다.";
+        } else {
+            alert.innerText="사용불가능한 아이디입니다.";
+            id.value = "";
+        }
+    });
+
+}
+
 function signUpCheck(){
-    console.log("here");
    check().then(function(res) {
     if(res) {
         comm().then(function(res) {
@@ -14,6 +29,35 @@ function signUpCheck(){
         return;
     }
    })
+}
+
+function checkComm(id) {
+    return new Promise(function (resolve) {
+        let url = "https://112.133.178.18:10201/medicine/member/idcheck/"+id;
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', url, true);
+
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
+
+        xhr.send();
+
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                if(xhr.responseText == 'true') {
+                    alert('성공');
+                    resolve(true);
+                } else {
+                    alert('실패');
+                    resolve(false);
+                }
+            } else {
+                console.log('failed')
+            }
+        }
+
+    });
 }
 
 function comm() {
