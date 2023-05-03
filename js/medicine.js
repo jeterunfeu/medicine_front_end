@@ -61,7 +61,7 @@ window.onload = function() {
             let firstsign = param.get('signfirst');
             let secondsign = param.get('signsecond');
             let signnum = param.get('signnum');
-            let page = (param.get('page') == null || param.get('page')) ? 1 : param.get('page');
+            let page = (param.get('page') == null || param.get('page') == '') ? 1 : param.get('page');
     
             console.log(part);
             if(type == '' || type == null) {

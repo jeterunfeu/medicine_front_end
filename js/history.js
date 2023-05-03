@@ -57,7 +57,7 @@ window.onload = function() {
             // let ingredient = param.get('ingredient');
             let type = param.get('type');
             let value = param.get('value');
-            let page = (param.get('page') == null || param.get('page')) ? 1 : param.get('page');
+            let page = (param.get('page') == null || param.get('page') == '') ? 1 : param.get('page');
     
             if(type == '' || type == null) {
                 url = 'https://112.133.178.18:10201/medicine/personalHistory?page='+page;

@@ -1,7 +1,7 @@
 window.onload = function() {
     let menu = document.getElementById('menu');
     let param = new URLSearchParams(location.search);
-    let part = (param.get('part') != null || param.get('part') != '') ? param.get('part') : null;
+    let part = (param.get('part') != null && param.get('part') != '') ? param.get('part') : null;
     let option = document.getElementById('part');
 
     if(part != null) {
@@ -43,9 +43,9 @@ window.onload = function() {
     });
 
     function comm(param) {
-        let type = (param.get('type') != null || param.get('type') != '') ? param.get('type') : null;
-        let value = (param.get('value') != null || param.get('value') != '') ? param.get('value') : null;
-        let page = (param.get('page') == null || param.get('page')) ? 1 : param.get('page');
+        let type = (param.get('type') != null && param.get('type') != '') ? param.get('type') : null;
+        let value = (param.get('value') != null && param.get('value') != '') ? param.get('value') : null;
+        let page = (param.get('page') == null || param.get('page') == '') ? 1 : param.get('page');
 
         let url = '';
 
@@ -94,7 +94,7 @@ window.onload = function() {
 
 function check() {
     let param = new URLSearchParams(location.search);
-    let part = (param.get('part') != null || param.get('part') != '') ? param.get('part') : null;
+    let part = (param.get('part') != null && param.get('part') != '') ? param.get('part') : null;
     let type = document.getElementById('searchType').value;
     let box = document.getElementById('searchText').value;
     if(box == '' || box == null) {
