@@ -115,7 +115,7 @@ window.onload = function() {
 
 function info() {
     return new Promise(function (resolve) {
-        let url = 'https://112.133.178.18:10201/medicine/member/info';
+        let url = 'https://112.133.178.18:10201/medicine/member/info/id';
 
         const xhr = new XMLHttpRequest();
         
