@@ -1,16 +1,23 @@
 window.onload = function() {
     let param = new URLSearchParams(location.search);
     let type = param.get('type');
+    let duplicatedalert = document.getElementById('duplicatedalert');
     let duplication = document.getElementById('checkbutton');
     let memberid = document.getElementById('memberid');
     let join = document.getElementById('join');
 
     if(type != '' && type != null) {
-        duplication.setAttribute('style', 'display:none');
-        memberid.setAttribute('readonly', true);
-        join.value = "수정하기"
+        comm('get').then(function(data) {
+            if(data) {
+                duplication.setAttribute('style', 'display:none');
+                duplicatedalert.setAttribute('style', 'display:none');
+                memberid.setAttribute('readonly', true);
+                join.value = "수정하기"
+            }
+        });
     } else {
         duplication.setAttribute('style', 'display:block');
+        duplicatedalert.setAttribute('style', 'display:block');
         memberid.setAttribute('readonly', false);
         join.value = "가입하기"
     }
@@ -90,17 +97,24 @@ function comm(type) {
     return new Promise(function (resolve) {
         let id = document.getElementById('memberid').value;
         let pw = document.getElementById('memberpw').value;
+        let pw2 = document.getElementById('memberpw2').value;
         let name = document.getElementById('membername').value;
         let mail = document.getElementById('email').value;
         let ph = document.getElementById('phone').value;
         let addr = document.getElementById('address').value;
+        let his = document.getElementById('history').value;
+        let all = document.getElementById('allergy').value;
+        let med = document.getElementById('medicine').value;
         url = "https://112.133.178.18:10201/medicine/member";
         let method = '';
 
         if(type == '' || type == null) {
             method = 'POST';
+        } else if(type == 'get') {
+            url ="https://112.133.178.18:10201/medicine/member/id";
+            method = 'GET';
         } else {
-            method = 'PUT';
+            method = 'PUT'
         }
 
 
@@ -110,7 +124,10 @@ function comm(type) {
             membername: name,
             email: mail,
             phone: ph,
-            address: addr
+            address: addr,
+            history: his,
+            allergy: all,
+            medicine: med
         });	
 
         const xhr = new XMLHttpRequest();
@@ -119,19 +136,43 @@ function comm(type) {
 
         xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
 
-        xhr.send(data);
+        if(type == 'get') {
+            xhr.send();
 
-        xhr.onload = function () {
-            if (xhr.status == 200) {
-                if(xhr.responseText == 'true') {
-                    alert('성공');
-                    resolve(true);
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                        let json = JSON.parse(xhr.responseText);
+                        id = json.memberid;
+                        pw = json.memberpw;
+                        pw2 = json.memberpw;
+                        name = json.membername;
+                        mail = json.email;
+                        ph = json.phone;
+                        addr = json.address;
+                        his = json.history;
+                        all = json.allergy;
+                        med = json.medicine;
+                        resolve(true);
                 } else {
-                    alert('실패');
+                    console.log('failed')
                     resolve(false);
                 }
-            } else {
-                console.log('failed')
+            }
+        } else {
+            xhr.send(data);
+
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    if(xhr.responseText == 'true') {
+                        alert('성공');
+                        resolve(true);
+                    } else {
+                        alert('실패');
+                        resolve(false);
+                    }
+                } else {
+                    console.log('failed')
+                }
             }
         }
     })
