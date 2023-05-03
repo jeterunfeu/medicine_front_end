@@ -2,25 +2,34 @@ body {
     text-align: center;
 }
 #historytable {
+    text-align: center;
+    width: 330px;
     border-collapse: collapse;
+    margin-bottom:5px;
 }
-#historytable>th, #historytable>td {
+#historytable th, #historytable td {
     border: 1px dotted blueviolet;
 } 
 #medicinetable {
+    text-align: center;
+    width: 330px;
     border-collapse: collapse;
+    margin-bottom:5px;
 }
-#medicinetable>th, #medicinetable>td {
+#medicinetable th, #medicinetable td {
     border: 1px dotted blueviolet;
 } 
 #symptomtable {
+    text-align: center;
+    width: 330px;
     border-collapse: collapse;
+    margin-bottom:5px;
 }
-#symptomtable>th, #symptomtable>td {
+#symptomtable th, #symptomtable td {
     border: 1px dotted blueviolet;
 } 
 img {
-    width:250px;
+    width:200px;
 }
 #container {
     width:330px;
