@@ -5,8 +5,6 @@ window.onload = function() {
         location.href = "menu.html";
     });
 
-
-
     comm(param).then(function (res) {
         let table = document.getElementById('medTable');
         let pagination = document.getElementById('pagination');
@@ -36,7 +34,7 @@ window.onload = function() {
                         <td colspan="2">비고 : ${res.data[i].note}</td>
                     </tr>
                     <tr>
-                    <td>약품선택</td><td>${res.data[i].star} 리뷰보기</td>
+                    <td><a href="display.html?mednum=${res.data[i].mednum}">약품선택</a></td><td>${res.data[i].star} 리뷰보기</td>
                     </tr>
                     `;
         }
