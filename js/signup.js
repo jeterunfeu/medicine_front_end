@@ -117,7 +117,6 @@ function check() {
         let email = document.getElementById('email');
         let phone = document.getElementById('phone');
         let address = document.getElementById('address');
-        let duplitext = document.getElementById('duplicatedalert');
         
     
         if(memberid.value == "" || memberid.value == null){
@@ -162,7 +161,8 @@ function check() {
             resolve(false);
             return;
         }
-        if(duplitext.value == null || duplitext.value == "" || duplitext.value.includes('사용가능')){
+        let duplitext = document.getElementById('duplicatedalert');
+        if(!duplitext.innerText.includes('사용가능')){
             alert('아이디 중복검사를 해주세요.');
             address.focus();
             resolve(false);
