@@ -144,8 +144,8 @@ function comm(type) {
                 if (xhr.status == 200) {
                         let json = JSON.parse(xhr.responseText);
                         id.value = json.memberid;
-                        pw.value = json.memberpw;
-                        pw2.value = json.memberpw;
+                        pw.value = null;
+                        pw2.value = null;
                         name.value = json.membername;
                         mail.value = json.email;
                         ph.value = json.phone;
