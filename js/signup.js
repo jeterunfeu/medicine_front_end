@@ -111,7 +111,7 @@ function comm(type) {
         if(type == '' || type == null) {
             method = 'POST';
         } else if(type == 'get') {
-            url ="https://112.133.178.18:10201/medicine/member/id";
+            url ="https://112.133.178.18:10201/medicine/member/info/id";
             method = 'GET';
         } else {
             url = "https://112.133.178.18:10201/medicine/member/info/id";
