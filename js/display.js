@@ -72,7 +72,7 @@ window.onload = function() {
 
 function info() {
     return new Promise(function (resolve) {
-        let url = 'https://localhost:10201/medicine/member/info';
+        let url = 'https://112.133.178.18:10201/medicine/member/info';
 
         const xhr = new XMLHttpRequest();
         
@@ -99,7 +99,7 @@ function comm(param) {
     let mednum = (param.get('mednum') == '' || param.get('mednum') == null) ? null : param.get('mednum');
 
     return new Promise(function (resolve) {
-       let url = 'https://localhost:10201/medicine/med/'+mednum;
+       let url = 'https://112.133.178.18:10201/medicine/med/'+mednum;
 
        const xhr = new XMLHttpRequest();
         
