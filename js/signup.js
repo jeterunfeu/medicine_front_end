@@ -36,9 +36,9 @@ window.onload = function() {
 
 function back(type) {
     if(type != '' && type != null) {
-        location.href="index.html";
-    } else {
         location.href="menu.html";
+    } else {
+        location.href="index.html";
     }
 }
 
