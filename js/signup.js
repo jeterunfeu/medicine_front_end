@@ -209,6 +209,13 @@ function check(type) {
             resolve(false);
             return;
         }
+        let duplitext = document.getElementById('duplicatedalert');
+        if(!duplitext.innerText.includes('사용가능')){
+            alert('아이디 중복검사를 해주세요.');
+            address.focus();
+            resolve(false);
+            return;
+        }
     }
         if(membername.value == "" || membername.value == null){
             alert('이름을 입력하세요.');
@@ -230,13 +237,6 @@ function check(type) {
         }
         if(address.value == "" || address.value == null){
             alert('주소를 입력하세요.');
-            address.focus();
-            resolve(false);
-            return;
-        }
-        let duplitext = document.getElementById('duplicatedalert');
-        if(!duplitext.innerText.includes('사용가능')){
-            alert('아이디 중복검사를 해주세요.');
             address.focus();
             resolve(false);
             return;
