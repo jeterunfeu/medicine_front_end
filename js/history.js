@@ -10,7 +10,6 @@ window.onload = function() {
         let pagination = document.getElementById('pagination');
         let tag = '';
         let page = '';
-        console.log(res.data.length);
         for(let i = 0; i < res.data.length; i++) {
             tag += `<tr class="head">
                         <td colspan="2">약제명 : ${res.data[i].medname}</td>
@@ -108,4 +107,8 @@ function check() {
         return false;
     }
     return true;
+}
+
+function init() {
+    location.href="history.html";
 }

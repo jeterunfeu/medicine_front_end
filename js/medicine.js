@@ -120,3 +120,7 @@ function check() {
     }
     return true;
 }
+
+function init() {
+    location.href="medicine.html";
+}

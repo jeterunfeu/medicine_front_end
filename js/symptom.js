@@ -109,3 +109,7 @@ function check() {
     }
 
 }
+
+function init() {
+    location.href="symptom.html";
+}
