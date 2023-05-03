@@ -23,7 +23,7 @@ window.onload = function () {
         location.href="prepare.html";
     });
     info.addEventListener('click', function() {
-        location.href="prepare.html";
+        location.href="signup.html?type=modify";
     });
     out.addEventListener('click', function() {
         let result = confirm('로그아웃 하시겠습니까?');

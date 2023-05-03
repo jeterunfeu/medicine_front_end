@@ -1,3 +1,25 @@
+window.onload = function() {
+    let param = new URLSearchParams(location.search);
+    let type = param.get('type');
+    let duplication = document.getElementById('checkbutton');
+    let memberid = document.getElementById('memberid');
+    let join = document.getElementById('join');
+
+    if(type != '' && type != null) {
+        duplication.setAttribute('style', 'display:none');
+        memberid.setAttribute('readonly', true);
+        join.value = "수정하기"
+    } else {
+        duplication.setAttribute('style', 'display:block');
+        memberid.setAttribute('readonly', false);
+        join.value = "가입하기"
+    }
+
+    join.addEventListener('click', function(){
+        signUpCheck(type);
+    });
+}
+
 function back() {
     location.href="index.html";
 }
@@ -21,14 +43,14 @@ function duplicatedCheck() {
 
 }
 
-function signUpCheck(){
+function signUpCheck(type){
    check().then(function(res) {
     if(res) {
-        comm().then(function(res) {
-            if(res) {
-                location.href="./index.html";
-            }
-        })
+            comm(type).then(function(res) {
+                if(res) {
+                    location.href="./index.html";
+                }
+            })   
     } else {
         return;
     }
@@ -64,7 +86,7 @@ function checkComm(id) {
     });
 }
 
-function comm() {
+function comm(type) {
     return new Promise(function (resolve) {
         let id = document.getElementById('memberid').value;
         let pw = document.getElementById('memberpw').value;
@@ -72,8 +94,15 @@ function comm() {
         let mail = document.getElementById('email').value;
         let ph = document.getElementById('phone').value;
         let addr = document.getElementById('address').value;
+        url = "https://112.133.178.18:10201/medicine/member";
+        let method = '';
 
-        let url = "https://112.133.178.18:10201/medicine/member";
+        if(type == '' || type == null) {
+            method = 'POST';
+        } else {
+            method = 'PUT';
+        }
+
 
         let data = JSON.stringify({
             memberid: id,
@@ -86,7 +115,7 @@ function comm() {
 
         const xhr = new XMLHttpRequest();
 
-        xhr.open('POST', url, true);
+        xhr.open(method, url, true);
 
         xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
 
