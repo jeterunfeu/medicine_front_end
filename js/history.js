@@ -22,13 +22,13 @@ window.onload = function() {
                         <td colspan="2">제약회사 : ${res.data[i].medco}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">가격 : ${res.data[i].price}</td>
+                        <td colspan="2">증상부위 : ${res.data[i].signpart}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">성분 : ${res.data[i].ingredient}</td>
+                        <td colspan="2">주요증상 : ${res.data[i].signfirst}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">비고 : ${res.data[i].note}</td>
+                        <td colspan="2">세부증상 : ${res.data[i].signsecond}</td>
                     </tr>
                     <tr>
                     <td colspan="2">제출일자 : ${res.data[i].inputdate}</td>
