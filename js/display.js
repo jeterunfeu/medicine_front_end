@@ -4,14 +4,15 @@ window.onload = function() {
         let medicine = document.getElementById('medicine');
         let symptom = document.getElementById('symptom');
         let tag = `<table>
-                    <tr class="head">
-                    <td colspan="2">약제명 : ${res.medname}</td>
-                  </tr>
-                  <tr>
+                    <tr>
                     <td colspan="2">${res.picture}</td>
+                    </tr>  
+                  <tr class="head">
+                    <td>약제명</td><td>${res.medname}</td>
                   </tr>
+
                   <tr>
-                    <td colspan="2">제약회사 : ${res.medco}</td>
+                    <td>제약회사</td><td>${res.medco}</td>
                   </tr>
                   </table>
                  `;
