@@ -1,4 +1,5 @@
 window.onload = function() {
+    let cancel = document.getElementById('cancel');
     let param = new URLSearchParams(location.search);
     let type = param.get('type');
     let duplicatedalert = document.getElementById('duplicatedalert');
@@ -25,10 +26,20 @@ window.onload = function() {
     join.addEventListener('click', function(){
         signUpCheck(type);
     });
+
+    cancel.addEventListener('click', function() {
+        back(type);
+    });
+
+
 }
 
-function back() {
-    location.href="index.html";
+function back(type) {
+    if(type != '' && type != null) {
+        location.href="index.html";
+    } else {
+        location.href="menu.html";
+    }
 }
 
 function duplicatedCheck() {

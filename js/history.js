@@ -8,6 +8,8 @@ window.onload = function() {
     comm(param).then(function (res) {
         let table = document.getElementById('historytable');
         let pagination = document.getElementById('pagination');
+        let type = param.get('type');
+        let value = param.get('value');
         let tag = '';
         let page = '';
         for(let i = 0; i < res.data.length; i++) {
@@ -39,8 +41,8 @@ window.onload = function() {
         }
 
         page = `<table><tr><td colspan="2">${res.currentPage}/${res.totalPageCount}</td></tr>
-        <tr><td>${res.currentPage <= 1 ? 'X' : `<a href='history.html?page=${res.currentPage - 1}'><</a>`}
-        </td><td>${res.currentPage >= res.totalPageCount ? 'X' : `<a href='history.html?page=${res.currentPage + 1}'>></a>`}</td></tr>
+        <tr><td>${res.currentPage <= 1 ? 'X' : `<a href='history.html?page=${res.currentPage - 1}${(type != null || type != "") ? '&type='+type+'&value='+value : ''}'><</a>`}
+        </td><td>${res.currentPage >= res.totalPageCount ? 'X' : `<a href='history.html?page=${res.currentPage + 1}${(type != null || type != "") ? '&type='+type+'&value='+value : ''}'>></a>`}</td></tr>
         </table>`
         table.innerHTML = tag;
         pagination.innerHTML = page;
@@ -87,10 +89,11 @@ window.onload = function() {
         
                 xhr.onload = function () {
                     if (xhr.status == 200) {
-                        if(xhr.responseText == null || xhr.responseText == '') {
+                        let json = JSON.parse(xhr.responseText);
+                        if(json.data == null || json.data == '[]') {
                             location.href = "null.html";
                         } else {
-                            resolve(JSON.parse(xhr.responseText));
+                            resolve(json);
                         }
                     } else {
                         console.log('failed')
