@@ -31,7 +31,7 @@ window.onload = function() {
                     <tr><th>세부 증상</th><td>${data.signsecond}</td></tr>
                     </table>
                     `;
-        switch(res.signpart) {
+        switch(data.signpart) {
             case '머리':
                 document.getElementById('head').setAttribute('src', './asset/image/head_red.png');
                 break;
