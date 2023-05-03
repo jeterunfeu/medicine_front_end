@@ -51,7 +51,7 @@ function duplicatedCheck() {
 }
 
 function signUpCheck(type){
-   check().then(function(res) {
+   check(type).then(function(res) {
     if(res) {
             comm(type).then(function(res) {
                 if(res) {
@@ -196,6 +196,7 @@ function check() {
             resolve(false);
             return;
         }
+    if(type == '' || type == null) {
         if(memberpw.value == "" || memberpw.value == null){
             alert('비밀번호를 입력하세요.');
             memberpw.focus();
@@ -208,6 +209,7 @@ function check() {
             resolve(false);
             return;
         }
+    }
         if(membername.value == "" || membername.value == null){
             alert('이름을 입력하세요.');
             membername.focus();
