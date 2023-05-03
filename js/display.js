@@ -1,25 +1,30 @@
 window.onload = function() {
+
+    menu.addEventListener('click', function() {
+        location.href = "menu.html";
+    });
+    
     let param = new URLSearchParams(location.search);
     comm(param).then(function(res) {
         let medicine = document.getElementById('medicine');
         let symptom = document.getElementById('symptom');
-        let tag = `<table>
+        let tag = `<table id="medicinetable">
                     <tr>
                     <td colspan="2">${res.picture}</td>
                     </tr>  
                   <tr class="head">
-                    <td>약제명</td><td>${res.medname}</td>
+                    <th>약제명</th><td>${res.medname}</td>
                   </tr>
 
                   <tr>
-                    <td>제약회사</td><td>${res.medco}</td>
+                    <th>제약회사</th><td>${res.medco}</td>
                   </tr>
                   </table>
                  `;
-        let tag2 = `<table>
-                    <tr><td>증상 부위</td><td>${res.signpart}</td></tr>
-                    <tr><td>증상</td><td>${res.signfirst}</td></tr>
-                    <tr><td>세부증상</td><td>${res.signsecond}</td></tr>
+        let tag2 = `<table id="symptomtable">
+                    <tr><th>증상 부위</th><td>${res.signpart}</td></tr>
+                    <tr><th>대표 증상</th><td>${res.signfirst}</td></tr>
+                    <tr><th>세부 증상</th><td>${res.signsecond}</td></tr>
                     </table>
                     `;
         switch(res.signpart) {
@@ -52,7 +57,7 @@ window.onload = function() {
                </tr>*/
         info().then(function(res) {
             let history = document.getElementById('history');
-            let tag = `<table>
+            let tag = `<table id="historytable">
                                 <tr>
                                 <th>기존병력</th>
                                 <td>${res.history != null ? res.history : '없음'}</td>

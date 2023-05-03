@@ -1,0 +1,64 @@
+body {
+    text-align: center;
+}
+#historytable {
+    border-collapse: collapse;
+}
+#historytable>th, #historytable>td {
+    border: 1px dotted blueviolet;
+} 
+#medicinetable {
+    border-collapse: collapse;
+}
+#medicinetable>th, #medicinetable>td {
+    border: 1px dotted blueviolet;
+} 
+#symptomtable {
+    border-collapse: collapse;
+}
+#symptomtable>th, #symptomtable>td {
+    border: 1px dotted blueviolet;
+} 
+img {
+    width:250px;
+}
+#container {
+    width:330px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#bodytable {
+    width:330px;
+}
+#symptom {
+    width:330px;
+}
+#history {
+    width:330px;
+}
+#medicine {
+    width:330px;
+}
+#comment {
+    width: 330px;
+    border: 1px dotted blueviolet;
+}
+
+#menu {
+    width: 200px;
+    background-color:  rgb(200, 54, 54);
+    color: white;
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:20px;
+}
+
+#menu:hover {
+    color:  rgb(200, 54, 54);
+    background-color: white;
+    font-weight: bolder;
+}
