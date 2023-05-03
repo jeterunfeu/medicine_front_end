@@ -95,16 +95,16 @@ function checkComm(id) {
 
 function comm(type) {
     return new Promise(function (resolve) {
-        let id = document.getElementById('memberid').value;
-        let pw = document.getElementById('memberpw').value;
-        let pw2 = document.getElementById('memberpw2').value;
-        let name = document.getElementById('membername').value;
-        let mail = document.getElementById('email').value;
-        let ph = document.getElementById('phone').value;
-        let addr = document.getElementById('address').value;
-        let his = document.getElementById('history').value;
-        let all = document.getElementById('allergy').value;
-        let med = document.getElementById('medicine').value;
+        let id = document.getElementById('memberid');
+        let pw = document.getElementById('memberpw');
+        let pw2 = document.getElementById('memberpw2');
+        let name = document.getElementById('membername');
+        let mail = document.getElementById('email');
+        let ph = document.getElementById('phone');
+        let addr = document.getElementById('address');
+        let his = document.getElementById('history');
+        let all = document.getElementById('allergy');
+        let med = document.getElementById('medicine');
         let url = "https://112.133.178.18:10201/medicine/member";
         let method = '';
 
@@ -120,15 +120,15 @@ function comm(type) {
 
 
         let data = JSON.stringify({
-            memberid: id,
-            memberpw: pw,
-            membername: name,
-            email: mail,
-            phone: ph,
-            address: addr,
-            history: his,
-            allergy: all,
-            medicine: med
+            memberid: id.value,
+            memberpw: pw.value,
+            membername: name.value,
+            email: mail.value,
+            phone: ph.value,
+            address: addr.value,
+            history: his.value,
+            allergy: all.value,
+            medicine: med.value
         });	
 
         const xhr = new XMLHttpRequest();
@@ -143,16 +143,16 @@ function comm(type) {
             xhr.onload = function () {
                 if (xhr.status == 200) {
                         let json = JSON.parse(xhr.responseText);
-                        id = json.memberid;
-                        pw = json.memberpw;
-                        pw2 = json.memberpw;
-                        name = json.membername;
-                        mail = json.email;
-                        ph = json.phone;
-                        addr = json.address;
-                        his = json.history;
-                        all = json.allergy;
-                        med = json.medicine;
+                        id.value = json.memberid;
+                        pw.value = json.memberpw;
+                        pw2.value = json.memberpw;
+                        name.value = json.membername;
+                        mail.value = json.email;
+                        ph.value = json.phone;
+                        addr.value = json.address;
+                        his.value = json.history;
+                        all.value = json.allergy;
+                        med.value = json.medicine;
                         resolve(true);
                 } else {
                     console.log('failed')
