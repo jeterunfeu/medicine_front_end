@@ -179,7 +179,7 @@ function comm(type) {
     })
 }
 
-function check() {
+function check(type) {
     return new Promise(function (resolve) {
         let memberid = document.getElementById('memberid');
         let memberpw = document.getElementById('memberpw');
