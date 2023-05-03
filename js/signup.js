@@ -4,7 +4,7 @@ function back() {
 
 function duplicatedCheck() {
     let id = document.getElementById('memberid');
-    let alert = document.getElementById('duplicatedalert');
+    let dalert = document.getElementById('duplicatedalert');
 
     if(id.value == null || id.value == '') {
         alert('아이디를 입력해주세요');
@@ -12,9 +12,9 @@ function duplicatedCheck() {
     }
     checkComm(id.value).then(function(res){
         if(res) {
-            alert.innerText="사용가능한 아이디입니다.";
+            dalert.innerText="사용가능한 아이디입니다.";
         } else {
-            alert.innerText="사용불가능한 아이디입니다.";
+            dalert.innerText="사용불가능한 아이디입니다.";
             id.value = "";
         }
     });
