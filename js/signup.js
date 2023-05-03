@@ -117,43 +117,59 @@ function check() {
         let email = document.getElementById('email');
         let phone = document.getElementById('phone');
         let address = document.getElementById('address');
+        let duplitext = document.getElementById('duplicatedalert');
         
     
         if(memberid.value == "" || memberid.value == null){
             alert('아이디를 입력하세요.');
             memberid.focus();
             resolve(false);
+            return;
         }
         if(memberpw.value == "" || memberpw.value == null){
             alert('비밀번호를 입력하세요.');
             memberpw.focus();
             resolve(false);
+            return;
         }
         if(memberpw.value != memberpw2.value){
             alert('비밀번호가 일치하지 않습니다.');
             memberpw2.focus();
             resolve(false);
+            return;
         }
         if(membername.value == "" || membername.value == null){
             alert('이름을 입력하세요.');
             membername.focus();
             resolve(false);
+            return;
         }
         if(email.value == "" || email.value == null){
             alert('이메일을 입력하세요.');
             email.focus();
             resolve(false);
+            return;
         }
         if(phone.value == "" || phone.value == null){
             alert('핸드폰 번호를 입력하세요.');
             phone.focus();
             resolve(false);
+            return;
         }
         if(address.value == "" || address.value == null){
             alert('주소를 입력하세요.');
             address.focus();
             resolve(false);
+            return;
         }
+        if(!duplitext.value.includes('사용가능')){
+            alert('아이디 중복검사를 해주세요.');
+            address.focus();
+            resolve(false);
+            return;
+        }
+    
         resolve(true);
+        return;
     })
 }
