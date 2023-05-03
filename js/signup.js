@@ -105,7 +105,7 @@ function comm(type) {
         let his = document.getElementById('history').value;
         let all = document.getElementById('allergy').value;
         let med = document.getElementById('medicine').value;
-        url = "https://112.133.178.18:10201/medicine/member";
+        let url = "https://112.133.178.18:10201/medicine/member";
         let method = '';
 
         if(type == '' || type == null) {
@@ -114,6 +114,7 @@ function comm(type) {
             url ="https://112.133.178.18:10201/medicine/member/info/id";
             method = 'GET';
         } else {
+            url = "https://112.133.178.18:10201/medicine/member/info/id";
             method = 'PUT'
         }
 
