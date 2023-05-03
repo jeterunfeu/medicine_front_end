@@ -88,7 +88,7 @@ window.onload = function() {
         
                 xhr.onload = function () {
                     if (xhr.status == 200) {
-                        if(xhr.responseText == null || xhr.responseText == '[]') {
+                        if(xhr.responseText == null || xhr.responseText == '') {
                             location.href = "null.html";
                         } else {
                             resolve(JSON.parse(xhr.responseText));
