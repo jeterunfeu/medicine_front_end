@@ -3,28 +3,32 @@ window.onload = function() {
     menu.addEventListener('click', function() {
         location.href = "menu.html";
     });
-    
+
+    let data1;
+    let data2;
+
     let param = new URLSearchParams(location.search);
-    comm(param).then(function(res) {
+    comm(param).then(function(data) {
+        data1 = data;
         let medicine = document.getElementById('medicine');
         let symptom = document.getElementById('symptom');
         let tag = `<table id="medicinetable">
                     <tr>
-                    <td colspan="2">${res.picture}</td>
+                    <td colspan="2">${data.picture}</td>
                     </tr>  
                   <tr class="head">
-                    <th>약제명</th><td>${res.medname}</td>
+                    <th>약제명</th><td>${data.medname}</td>
                   </tr>
 
                   <tr>
-                    <th>제약회사</th><td>${res.medco}</td>
+                    <th>제약회사</th><td>${data.medco}</td>
                   </tr>
                   </table>
                  `;
         let tag2 = `<table id="symptomtable">
-                    <tr><th>증상 부위</th><td>${res.signpart}</td></tr>
-                    <tr><th>대표 증상</th><td>${res.signfirst}</td></tr>
-                    <tr><th>세부 증상</th><td>${res.signsecond}</td></tr>
+                    <tr><th>증상 부위</th><td>${data.signpart}</td></tr>
+                    <tr><th>대표 증상</th><td>${data.signfirst}</td></tr>
+                    <tr><th>세부 증상</th><td>${data.signsecond}</td></tr>
                     </table>
                     `;
         switch(res.signpart) {
@@ -56,6 +60,7 @@ window.onload = function() {
                  <td colspan="2">비고 : ${res.data[i].note}</td>
                </tr>*/
         info().then(function(res) {
+            data2 = res;
             let history = document.getElementById('history');
             let tag = `<table id="historytable">
                                 <tr>
@@ -72,8 +77,40 @@ window.onload = function() {
                                 </tr>
                         </table>`;
             history.innerHTML = tag;
+            historyInsert(data1, data2);
         })
     });
+
+    function historyInsert(data1, data2) {
+        return new Promise(function () {
+            let url = 'https://112.133.178.18:10201/medicine/personalHistory';
+    
+            let data = JSON.stringify({
+                membernum: data1.membernum,
+                mednum: data2.mednum
+            });	
+    
+            const xhr = new XMLHttpRequest();
+            
+           xhr.open('POST', url, true);
+    
+           xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
+    
+           xhr.send(data);
+    
+           xhr.onload = function () {
+               if (xhr.status == 200) {
+                   if(xhr.responseText == true) {
+                    console.log('history stored');
+                   } else {
+                    console.log('history store failed');
+                   }
+                } else {
+                    console.log('failed');
+                }
+            }
+        });
+    }
 }
 
 function info() {
