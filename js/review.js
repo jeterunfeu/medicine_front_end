@@ -316,3 +316,6 @@ function deleteComm(seq) {
             }
     })
 }
+function goMain(){
+    location.href="menu.html";
+}

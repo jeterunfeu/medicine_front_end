@@ -4,3 +4,6 @@ window.onload = function () {
         location.href="menu.html";
     });
 }
+function goMain(){
+    location.href="menu.html";
+}

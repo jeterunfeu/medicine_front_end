@@ -116,3 +116,6 @@ function check() {
 function init() {
     location.href="history.html";
 }
+function goMain(){
+    location.href="menu.html";
+}

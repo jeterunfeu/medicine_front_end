@@ -7,3 +7,6 @@ $(window).load(function(){
 function signUpFun() {
     location.href="./signUp.html";
 }
+function goMain(){
+    location.href="menu.html";
+}

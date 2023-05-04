@@ -9,11 +9,11 @@ table{
     border-collapse:collapse;
     width: 300px;
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid #ddd;
 }
 
 tr,td {
-    border: 1px solid black;
+    border: 1px solid #ddd;
 }
 
 #container {
@@ -37,6 +37,8 @@ tr,td {
 }
 
 #menu {
+    background-color: rgb(200, 54, 54);
+    color: white;
     width: 200px;
     text-align: center;
     padding-top:20px;

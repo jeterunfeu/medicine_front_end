@@ -23,7 +23,7 @@ h2 {
 table {
     border-collapse:collapse;
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid #ddd;
     width: 300px;
 }
 
@@ -33,11 +33,13 @@ table {
 
 tr,td {
 
-    border : 1px solid black;
+    border : 1px solid  #ddd;
     padding: 20px;
 }
 
 #menu {
+    background-color:rgb(200, 54, 54);
+    color: white;
     width: 200px;
     text-align: center;
     padding-top:20px;
@@ -55,9 +57,8 @@ tr,td {
 }
 
 .head {
-    color: white;
     font-weight: bolder;
-    background-color:rgb(200, 54, 54);
+    background-color:rgb(238, 238, 238);
 }
 .blank {
     border-left: none;

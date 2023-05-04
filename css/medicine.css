@@ -1,7 +1,8 @@
 #menu {
+    background-color: rgb(200, 54, 54);
+    color: white;
     width: 200px;
     font-weight: bolder;
-    color: black;
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
@@ -39,8 +40,8 @@ table {
 } */
 
 .head{
-    background-color: rgb(200, 54, 54);
-    color: white;
+    background-color: rgb(237, 237, 237);
+    font-weight: bolder;
 }
 
 #page{

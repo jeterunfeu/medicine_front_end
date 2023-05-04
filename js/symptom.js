@@ -116,3 +116,7 @@ function check() {
 function init() {
     location.href="symptom.html";
 }
+
+function goMain(){
+    location.href="menu.html";
+}

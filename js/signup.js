@@ -257,3 +257,6 @@ function check(type) {
         return;
     })
 }
+function goMain(){
+    location.href="menu.html";
+}

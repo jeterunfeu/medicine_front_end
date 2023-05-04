@@ -129,3 +129,6 @@ function check() {
 function init() {
     location.href="medicine.html";
 }
+function goMain(){
+    location.href="menu.html";
+}

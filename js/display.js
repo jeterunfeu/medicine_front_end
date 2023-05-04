@@ -165,3 +165,6 @@ function comm(param) {
        }
     })
 }
+function goMain(){
+    location.href="menu.html";
+}
