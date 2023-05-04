@@ -1,6 +1,11 @@
 window.onload = function() {
     let param = new URLSearchParams(location.search);
     let initButton = document.getElementById('initbutton');
+    let writeButton = document.getElementById('write');
+
+    writeButton.addEventListener('click', function() {
+        write(param);
+    });
 
     initButton.addEventListener('click', function() {
         init(param);
