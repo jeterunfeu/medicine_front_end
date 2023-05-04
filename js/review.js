@@ -2,6 +2,9 @@ window.onload = function() {
     let param = new URLSearchParams(location.search);
     let initButton = document.getElementById('initbutton');
     let writeButton = document.getElementById('write');
+    let edit = document.getElementsByClassName('edit');
+
+    edit.setAttribute('style', 'display:none');
 
     writeButton.addEventListener('click', function() {
         let num = param.get('mednum');
@@ -61,7 +64,7 @@ window.onload = function() {
             ${id == res.data.list[i].memberid ? `<input type="button" value="삭제" onclick="remove('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">` : ''}</td></tr>
             <tr><td><div class="display">별점 : ${res.data.list[i].evaluate}</div>
             <div class="edit">
-            <select name="evaluate" id="evaluate2" style="display:none;">
+            <select name="evaluate" id="evaluate2">
             <option value="1" ${res.data.list[i].evaluate == '1' ? 'selected' : ''}>1</option>
             <option value="2" ${res.data.list[i].evaluate == '2' ? 'selected' : ''}>2</option>
             <option value="3" ${res.data.list[i].evaluate == '3' ? 'selected' : ''}>3</option>
@@ -72,7 +75,7 @@ window.onload = function() {
             </td></tr>
             <tr><td>내용</td></tr>
             <tr><td><div class="display">${res.data.list[i].contents}</div>
-            <div class="edit"><textarea name="contents" id="contents2" style="display:none;">${res.data.list[i].contents}</textarea></div>
+            <div class="edit"><textarea name="contents" id="contents2">${res.data.list[i].contents}</textarea></div>
             </td></tr>
             <tr class="edit">
             <td colspan="2">
