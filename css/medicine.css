@@ -1,7 +1,7 @@
 #menu {
     width: 200px;
-    background-color:  rgb(200, 54, 54);
-    color: white;
+    font-weight: bolder;
+    color: black;
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
@@ -39,7 +39,8 @@ table {
 } */
 
 .head{
-    background-color: #f399a2;
+    background-color: rgb(200, 54, 54);
+    color: white;
 }
 
 #page{
@@ -67,7 +68,7 @@ table {
     text-align: center;
 }
 *{
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
     text-align: center;
 }
 #small_logo{

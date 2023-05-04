@@ -71,3 +71,6 @@ img {
     background-color: white;
     font-weight: bolder;
 }
+*{
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}

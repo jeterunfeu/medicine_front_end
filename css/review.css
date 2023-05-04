@@ -32,7 +32,7 @@ td{
 }
 
 .head{
-    background-color: aquamarine;
+    background-color: rgb(241, 241, 241);
 }
 
 #container {
@@ -43,7 +43,7 @@ td{
     text-align: center;
 }
 *{
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
     text-align: center;
 }
 #small_logo{

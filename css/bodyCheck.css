@@ -18,7 +18,6 @@ img {
 #menu {
     width: 80px;
     height: 15px;
-    background-color: rgb(203, 203, 203);
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
@@ -29,8 +28,7 @@ img {
 }
 
 #menu:hover {
-    background-color:rgb(200, 54, 54);
-    color: white;
+    color: rgb(200, 54, 54);
     font-weight: bolder;
 }
 
@@ -47,7 +45,7 @@ img {
     margin: auto;
 }
 *{
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
     text-align: center;
 }
 

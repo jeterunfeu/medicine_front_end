@@ -23,49 +23,22 @@ h2 {
 table {
     border-collapse:collapse;
     margin: auto;
-    border: 1px solid #ddd;
+    border: 1px solid black;
     width: 300px;
 }
-
-.t, .head{
-    border : 1px solid #ddd;
-    padding: 20px;
-}
-
-/* .t:hover{
-    color: #AA39D4;
-} */
 
 #container {
     margin-top: 50px;
 }
 
-/* tr,td {
+tr,td {
 
-    border : 1px dotted lightseagreen;
-    padding: 20px;
-} */
-
-#page{
-
-    border : 1px dotted white;
+    border : 1px solid black;
     padding: 20px;
 }
-
-#rink{
-    text-decoration-line: none;
-}
-
-#rink:hover{
-    text-decoration-line: underline;
-    size: 80px;
-}
-
 
 #menu {
     width: 200px;
-    background-color: rgb(200, 54, 54);
-    color: white;
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
@@ -82,7 +55,9 @@ table {
 }
 
 .head {
-    background-color:#f399a2;
+    color: white;
+    font-weight: bolder;
+    background-color:rgb(200, 54, 54);
 }
 .blank {
     border-left: none;
@@ -90,7 +65,7 @@ table {
     border-bottom: none;
 }
 *{
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
     text-align: center;
 }
 #small_logo{
