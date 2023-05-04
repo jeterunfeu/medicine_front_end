@@ -12,7 +12,7 @@ window.onload = function() {
     });
 
     menu.addEventListener('click', function() {
-        location.href = "menu.html";
+        history.go(-1);
     });
 
     comm(param).then(function (res) {
