@@ -15,7 +15,7 @@ window.onload = function() {
         history.go(-1);
     });
 
-    getSeq().then(function(seq){
+    getSeq().then(function(id){
         comm(param).then(function (res) {
             let table = document.getElementById('reviewtable');
             let medicineTable = document.getElementById('medicinetable');
@@ -53,7 +53,7 @@ window.onload = function() {
                 tag += `<tr class="head">
                 <td>작성아이디 : ${res.data.list[i].memberid}</td>
             </tr>
-            <tr><td>${seq == res.data.list.membernum ? `<input type="button" value="삭제" onclick="remove('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">` : ''}</td></tr>
+            <tr><td>${id == res.data.list[i].memberid ? `<input type="button" value="삭제" onclick="remove('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">` : ''}</td></tr>
             <tr><td>별점 : ${res.data.list[i].evaluate}</td></tr>
             <tr><td>내용</td></tr>
             <tr><td>${res.data.list[i].contents}</td></tr>
