@@ -269,7 +269,7 @@ function init(param) {
 function excute(seq, num) {
     modifyComm(seq).then(function (res) {
         if(res) {
-            location.href="review.js?mednum="+num;
+            location.href="review.html?mednum="+num;
         }
     });
 }
@@ -277,7 +277,7 @@ function excute(seq, num) {
 function remove(seq, num) {
     deleteComm(seq).then(function (res) {
         if(res) {
-            location.href="review.js?mednum="+num;
+            location.href="review.html?mednum="+num;
         }
     });
 }
