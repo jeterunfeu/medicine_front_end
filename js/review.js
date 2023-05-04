@@ -2,11 +2,6 @@ window.onload = function() {
     let param = new URLSearchParams(location.search);
     let initButton = document.getElementById('initbutton');
     let writeButton = document.getElementById('write');
-    let edit = document.getElementsByClassName('edit');
-
-    for(let i=0; i <edit.length; i++) {
-        edit[i].setAttribute('style', 'display:none');
-    }
 
     writeButton.addEventListener('click', function() {
         let num = param.get('mednum');
@@ -96,6 +91,12 @@ window.onload = function() {
             pagination.innerHTML = page;
         });
     });
+
+    let edit = document.getElementsByClassName('edit');
+
+    for(let i=0; i <edit.length; i++) {
+        edit[i].setAttribute('style', 'display:none');
+    }
 
     function getSeq() {
         return new Promise(function (resolve) {
