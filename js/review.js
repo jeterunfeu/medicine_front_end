@@ -32,6 +32,9 @@ window.onload = function() {
         <td colspan="2">${res.data.picture}</td>
         </tr>
         <tr>
+        <td colspan="2">별점 : ${res.data.star}</td>
+        </tr>
+        <tr>
             <td colspan="2">제약회사 : ${res.data.medco}</td>
         </tr>
         <tr>
