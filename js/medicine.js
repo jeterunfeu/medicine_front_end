@@ -34,7 +34,8 @@ window.onload = function() {
                         <td colspan="2">비고 : ${res.data[i].note}</td>
                     </tr>
                     <tr>
-                    <td><a href="display.html?mednum=${res.data[i].mednum}">약품선택</a></td><td>${res.data[i].star} 리뷰보기</td>
+                    <td><a href="display.html?mednum=${res.data[i].mednum}">약품선택</a></td>
+                    <td>${res.data[i].star} <a href="review.html?mednum=${res.data[i].mednum}">리뷰보기</a></td>
                     </tr>
                     `;
         }

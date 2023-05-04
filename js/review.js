@@ -1,5 +1,10 @@
 window.onload = function() {
     let param = new URLSearchParams(location.search);
+    let initButton = document.getElementById('initbutton');
+
+    initButton.addEventListener('click', function() {
+        init(param);
+    });
 
     menu.addEventListener('click', function() {
         location.href = "menu.html";
@@ -7,38 +12,45 @@ window.onload = function() {
 
     comm(param).then(function (res) {
         let table = document.getElementById('historytable');
+        let medicineTable = document.getElementById('medicinetable');
         let pagination = document.getElementById('pagination');
         let type = param.get('type');
         let value = param.get('value');
+        let medtag = '';
         let tag = '';
         let page = '';
-        for(let i = 0; i < res.data.length; i++) {
+        medtag += `<tr class="head">
+        <td colspan="2">약제명 : ${res.data.medname}</td>
+    </tr>
+    <tr>
+    <td colspan="2">${res.data.picture}</td>
+    </tr>
+    <tr>
+        <td colspan="2">제약회사 : ${res.data.medco}</td>
+    </tr>
+    <tr>
+        <td colspan="2">가격 : ${res.data.price}</td>
+    </tr>
+    <tr>
+        <td>복용법 : ${res.data.takemed}</td><td>복용횟수 : ${res.data.medcycle}</td>
+    </tr>
+    <tr>
+        <td colspan="2">성분 : ${res.data.ingredient}</td>
+    </tr>
+    <tr>
+        <td colspan="2">비고 : ${res.data.note}</td>
+    </tr>
+    `;
+    medicineTable.innerText = medtag;
+
+        for(let i = 0; i < res.data.list.length; i++) {
             tag += `<tr class="head">
-                        <td colspan="2">약제명 : ${res.data[i].medname}</td>
-                    </tr>
-                    <tr>
-                    <td colspan="2">${res.data[i].picture}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">제약회사 : ${res.data[i].medco}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">증상부위 : ${res.data[i].signpart}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">주요증상 : ${res.data[i].signfirst}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">세부증상 : ${res.data[i].signsecond}</td>
-                    </tr>
-                    <tr>
-                    <td colspan="2">제출일자 : ${res.data[i].inputdate}</td>
-                    </tr>
-                    <tr>
-                    <td><a href="display.html?mednum=${res.data[i].mednum}">약품선택</a></td>
-                    <td>${res.data[i].star} <a href="review.html?mednum=${res.data[i].mednum}">리뷰보기</a></td>
-                    </tr>
-                    `;
+            <td>작성아이디 : ${res.data.list[i].memberid}</td>
+        </tr>
+        <tr><td>별점 : ${res.data.list[i].evaluate}</td></tr>
+        <tr><td>내용</td></tr>
+        <tr><td>${res.data.list[i].contents}</td></tr>
+        `;
         }
 
         page = `<table><tr><td colspan="2">${res.currentPage}/${res.totalPageCount}</td></tr>
@@ -57,27 +69,16 @@ window.onload = function() {
             // let takemed = param.get('takemed');
             // let medcycle = param.get('medcycle');
             // let ingredient = param.get('ingredient');
+            let mednum = param.get('mednum');
             let type = param.get('type');
             let value = param.get('value');
             let page = (param.get('page') == null || param.get('page') == '') ? 1 : param.get('page');
     
             if(type == '' || type == null) {
-                url = 'https://112.133.178.18:10201/medicine/personalHistory?page='+page;
+                url = 'https://112.133.178.18:10201/medicine/review?page='+page+'&mednum='+mednum;
             }
-            if(type == 'medname') {
-                url = 'https://112.133.178.18:10201/medicine/personalHistory?page='+page+'&medname='+value;
-            }
-            if(type == 'medco') {
-                url = 'https://112.133.178.18:10201/medicine/personalHistory?page='+page+'&medco='+value;
-            }
-            if(type == 'signpart') {
-                url = 'https://112.133.178.18:10201/medicine/personalHistory?page='+page+'&signpart='+value;
-            }
-            if(type == 'signfirst') {
-                url = 'https://112.133.178.18:10201/medicine/personalHistory?page='+page+'&signfirst='+value;
-            }
-            if(type == 'signsecond') {
-                url = 'https://112.133.178.18:10201/medicine/personalHistory?page='+page+'&signsecond='+value;
+            if(type == 'contents') {
+                url = 'https://112.133.178.18:10201/medicine/review?page='+page+'&mednum='+mednum+'&contents='+value;
             }
     
             const xhr = new XMLHttpRequest();
@@ -91,7 +92,7 @@ window.onload = function() {
                 xhr.onload = function () {
                     if (xhr.status == 200) {
                         let json = JSON.parse(xhr.responseText);
-                        if(json.data == null || json.data == '' || json.data == '[]') {
+                        if(json.data.list == null || json.data.list == '' || json.data.list == '[]') {
                             location.href = "null.html";
                         } else {
                             resolve(json);
@@ -104,6 +105,40 @@ window.onload = function() {
     }
 }
 
+function write(param) {
+    let num = param.get('mednum');
+    let eval = document.getElementById('evaluate').value;
+    let con = document.getElementById('contents').innerText;
+
+    let url = 'https://112.133.178.18:10201/medicine/review';
+
+    let data = JSON.stringify({
+        contents : con,
+        evaluate : eval,
+        mednum : num 
+    });	
+
+    xhr.open('POST', url, true);
+        
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
+
+    xhr.send(data);
+
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            if(xhr.responseText == 'true') {
+                alert('성공');
+                location.href = "review.html?mednum="+num;
+            } else {
+                alert('실패');
+            }
+        } else {
+            console.log('failed')
+        }
+    }
+
+}
+
 function check() {
     let box = document.getElementById('searchText').value;
     if(box == '' || box == null) {
@@ -112,7 +147,7 @@ function check() {
     }
     return true;
 }
-
-function init() {
-    location.href="history.html";
+function init(param) {
+    let mednum = param.get('mednum');
+    location.href="review.html?mednum" + mednum;
 }

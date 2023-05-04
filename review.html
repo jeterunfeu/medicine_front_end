@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review</title>
+    <link href="./css/review.css" rel="stylesheet">
+    <script src="./js/review.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="search">
+            <form action="history.html" method="get" onsubmit="return check()">
+            <select id="searchType" name="type">
+                <option value="contents">내용</option>
+            </select>
+            <input type="text" name="value" id="searchText">
+            <input type="submit" value="검색">
+            <input type="button" value="초기화" id="initbutton">
+        </form>
+        </div>
+        <br>
+        <table id="medicinetable">
+        </table>
+        <br>
+        <table id="reviewtable">
+        </table>
+        <br>
+        <div id="pagination"></div> <br>
+        <table id="writetable">
+            <tr><td colspan="2"><input type="button" value="쓰기" onclick="write()"></td></tr>
+            <tr>
+                <td>별점</td>
+                <td>
+                    <select name="evaluate" id="evaluate">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </td>
+            </tr>
+            <tr><td colspan="2">내용</td></tr>
+            <tr><td colspan="2"><textarea name="contents" id="contents"></textarea></td></tr>
+        </table> <br>
+        <div id="menu"> 메뉴 화면 </div>
+    </div>
+    
+</body>
+</html>
