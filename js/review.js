@@ -89,14 +89,14 @@ window.onload = function() {
             </table>`
             table.innerHTML = tag;
             pagination.innerHTML = page;
+
+            let edit = document.getElementsByClassName('edit');
+
+            for(let i=0; i <edit.length; i++) {
+                edit[i].setAttribute('style', 'display:none');
+            }
         });
     });
-
-    let edit = document.getElementsByClassName('edit');
-
-    for(let i=0; i <edit.length; i++) {
-        edit[i].setAttribute('style', 'display:none');
-    }
 
     function getSeq() {
         return new Promise(function (resolve) {
