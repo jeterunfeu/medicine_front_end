@@ -11,7 +11,7 @@ window.onload = function() {
     });
 
     comm(param).then(function (res) {
-        let table = document.getElementById('historytable');
+        let table = document.getElementById('reviewtable');
         let medicineTable = document.getElementById('medicinetable');
         let pagination = document.getElementById('pagination');
         let type = param.get('type');
