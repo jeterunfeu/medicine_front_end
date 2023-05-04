@@ -114,7 +114,7 @@ function writeconn(param) {
     return new Promise(function (resolve) {
         let num = param.get('mednum');
         let eval = document.getElementById('evaluate').value;
-        let con = document.getElementById('contents').innerText;
+        let con = document.getElementById('contents').value;
     
         let url = 'https://112.133.178.18:10201/medicine/review';
     
