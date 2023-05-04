@@ -161,7 +161,6 @@ window.onload = function() {
 }
 
 function execute(seq, num) {
-    let num = param.get('mednum');
     writeconn(seq, num, false).then(function(res) {
         if(res) {
             location.href = "review.html?mednum="+num;
