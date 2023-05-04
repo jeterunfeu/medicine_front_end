@@ -41,7 +41,7 @@ window.onload = function() {
         <td colspan="2">비고 : ${res.data.note}</td>
     </tr>
     `;
-    medicineTable.innerText = medtag;
+    medicineTable.innerHTML = medtag;
 
         for(let i = 0; i < res.data.list.length; i++) {
             tag += `<tr class="head">
