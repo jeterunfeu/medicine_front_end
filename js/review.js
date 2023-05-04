@@ -123,6 +123,8 @@ function writeconn(param) {
             evaluate : eval,
             mednum : num 
         });	
+
+        const xhr = new XMLHttpRequest();
     
         xhr.open('POST', url, true);
             
