@@ -41,6 +41,7 @@ img {
     width:330px;
 }
 #symptom {
+    padding-top: 30px;
     width:330px;
 }
 #history {
@@ -73,4 +74,27 @@ img {
 }
 *{
     font-family: 'IBM Plex Sans KR', sans-serif;
+}
+#small_logo{
+    height: 50px;
+    width: auto;
+    text-align: left;
+}
+#logo_small{
+    height: 35px;
+    width: auto;
+}
+#arm, #leg, #stomach{
+    width: 180px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+table {
+    margin: auto;
+    border-collapse:collapse;
+    
+}
+tr, td{
+    padding:0px;
 }

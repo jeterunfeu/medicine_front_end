@@ -5,8 +5,7 @@
 table {
     margin: auto;
     border-collapse:collapse;
-    border-style:none;
-    padding:0px;
+    
 }
 tr, td{
     padding:0px;
