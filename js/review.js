@@ -105,38 +105,49 @@ window.onload = function() {
     }
 }
 
+function writeconn(param) {
+    return new Promise(function (resolve) {
+        let num = param.get('mednum');
+        let eval = document.getElementById('evaluate').value;
+        let con = document.getElementById('contents').innerText;
+    
+        let url = 'https://112.133.178.18:10201/medicine/review';
+    
+        let data = JSON.stringify({
+            contents : con,
+            evaluate : eval,
+            mednum : num 
+        });	
+    
+        xhr.open('POST', url, true);
+            
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
+    
+        xhr.send(data);
+    
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                if(xhr.responseText == 'true') {
+                    alert('성공');
+                    resolve(true);
+                } else {
+                    alert('실패');
+                    resolve(false);
+                }
+            } else {
+                console.log('failed')
+            }
+        }
+    })
+}
+
 function write(param) {
     let num = param.get('mednum');
-    let eval = document.getElementById('evaluate').value;
-    let con = document.getElementById('contents').innerText;
-
-    let url = 'https://112.133.178.18:10201/medicine/review';
-
-    let data = JSON.stringify({
-        contents : con,
-        evaluate : eval,
-        mednum : num 
-    });	
-
-    xhr.open('POST', url, true);
-        
-    xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
-
-    xhr.send(data);
-
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            if(xhr.responseText == 'true') {
-                alert('성공');
-                location.href = "review.html?mednum="+num;
-            } else {
-                alert('실패');
-            }
-        } else {
-            console.log('failed')
+    writeconn(param).then(function(res) {
+        if(res) {
+            location.href = "review.html?mednum="+num;
         }
-    }
-
+    });
 }
 
 function check() {
