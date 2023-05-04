@@ -91,7 +91,7 @@ window.onload = function() {
                 xhr.onload = function () {
                     if (xhr.status == 200) {
                         let json = JSON.parse(xhr.responseText);
-                        if(type == null && (json.data.list == null || json.data.list == '' || json.data.list == '[]')) {
+                        if(type != null && (json.data == null || json.data == '' || json.data == '[]')) {
                             location.href = "null.html";
                         } else {
                             resolve(json);
