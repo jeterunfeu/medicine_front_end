@@ -16,6 +16,8 @@ img {
 }
 
 #menu {
+    background-color:rgb(200, 54, 54);
+    color: white;
     width: 80px;
     height: 15px;
     text-align: center;
@@ -28,6 +30,7 @@ img {
 }
 
 #menu:hover {
+    background-color: white;
     color: rgb(200, 54, 54);
     font-weight: bolder;
 }
