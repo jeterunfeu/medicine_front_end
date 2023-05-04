@@ -15,6 +15,7 @@ window.onload = function() {
         history.go(-1);
     });
 
+    getSeq().then(function (data) {
     comm(param).then(function (res) {
         let table = document.getElementById('reviewtable');
         let medicineTable = document.getElementById('medicinetable');
@@ -52,6 +53,7 @@ window.onload = function() {
             tag += `<tr class="head">
             <td>작성아이디 : ${res.data.list[i].memberid}</td>
         </tr>
+        <tr><td>${data == res.data.list.membernum ? `<input type="button" value="삭제" onclick="remove('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">` : ''}</td></tr>
         <tr><td>별점 : ${res.data.list[i].evaluate}</td></tr>
         <tr><td>내용</td></tr>
         <tr><td>${res.data.list[i].contents}</td></tr>
@@ -65,6 +67,31 @@ window.onload = function() {
         table.innerHTML = tag;
         pagination.innerHTML = page;
     });
+});
+
+    function getSeq() {
+        return new Promise(function (resolve) {
+            let url = 'https://112.133.178.18:10201/medicine/member/info/seq';
+
+            const xhr = new XMLHttpRequest();
+        
+                xhr.open('GET', url, true);
+        
+                xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
+        
+                xhr.send();
+        
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
+                        if(xhr.responseText == null || xhr.responseText == '') {
+                            resolve(xhr.responseText);
+                        }
+                    } else {
+                        console.log('failed')
+                    }
+                }
+        })
+    }
 
     function comm(param) {
         return new Promise(function (resolve) {
@@ -168,4 +195,41 @@ function check() {
 function init(param) {
     let mednum = param.get('mednum');
     location.href="review.html?mednum" + mednum;
+}
+
+function remove(seq, num) {
+    deleteComm(seq).then(function (res) {
+        if(res) {
+            location.href="review.js?mednum="+num;
+        }
+    });
+}
+
+function deleteComm(seq) {
+    return new Promise(function (resolve) {
+        let url = 'https://112.133.178.18:10201/medicine/review/'+seq;
+
+        const xhr = new XMLHttpRequest();
+    
+            xhr.open('DELETE', url, true);
+    
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
+    
+            xhr.send();
+    
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    if(xhr.responseText == 'true') {
+                        alert('성공');
+                        resolve(true);
+                    } else {
+                        alert('실패');
+                        resolve(false);
+                    }
+                } else {
+                    alert('실패');
+                    console.log('failed')
+                }
+            }
+    })
 }
