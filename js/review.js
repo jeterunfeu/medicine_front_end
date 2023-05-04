@@ -175,7 +175,7 @@ function edit() {
         display[i].style.display = 'none';
     }
     for(let j = 0; j < edit.length; j++) {
-        edit[i].style.display = 'block';
+        edit[j].style.display = 'block';
     }
 }
 
@@ -186,7 +186,7 @@ function cancel() {
         display[i].style.display = 'block';
     }
     for(let j = 0; j < edit.length; j++) {
-        edit[i].style.display = 'none';
+        edit[j].style.display = 'none';
     }
 }
 
