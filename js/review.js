@@ -4,7 +4,8 @@ window.onload = function() {
     let writeButton = document.getElementById('write');
 
     writeButton.addEventListener('click', function() {
-        write(param);
+        let num = param.get('mednum');
+        write(num);
     });
 
     initButton.addEventListener('click', function() {
@@ -56,10 +57,29 @@ window.onload = function() {
                 tag += `<tr class="head">
                 <td>작성아이디 : ${res.data.list[i].memberid}</td>
             </tr>
-            <tr><td>${id == res.data.list[i].memberid ? `<input type="button" value="삭제" onclick="remove('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">` : ''}</td></tr>
-            <tr><td>별점 : ${res.data.list[i].evaluate}</td></tr>
+            <tr><td><div class="display">${id == res.data.list[i].memberid ? `<input type="button" value="수정" onclick="edit()">` : ''}</div></td>
+            <td>${id == res.data.list[i].memberid ? `<input type="button" value="삭제" onclick="remove('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">` : ''}</td></tr>
+            <tr><td><div class="display">별점 : ${res.data.list[i].evaluate}</div>
+            <div class="edit">
+            <select name="evaluate" id="evaluate2" style="display:none;">
+            <option value="1" ${res.data.list[i].evaluate == '1' ? 'selected' : ''}>1</option>
+            <option value="2" ${res.data.list[i].evaluate == '2' ? 'selected' : ''}>2</option>
+            <option value="3" ${res.data.list[i].evaluate == '3' ? 'selected' : ''}>3</option>
+            <option value="4" ${res.data.list[i].evaluate == '4' ? 'selected' : ''}>4</option>
+            <option value="5" ${res.data.list[i].evaluate == '5' ? 'selected' : ''}>5</option>
+            </select>
+            </div>
+            </td></tr>
             <tr><td>내용</td></tr>
-            <tr><td>${res.data.list[i].contents}</td></tr>
+            <tr><td><div class="display">${res.data.list[i].contents}</div>
+            <div class="edit"><textarea name="contents" id="contents2" style="display:none;">${res.data.list[i].contents}</textarea></div>
+            </td></tr>
+            <tr class="edit">
+            <td colspan="2">
+                <input type="button" value="수정 실행" onclick="execute('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">
+                <input type="button" value="취소" onclick="cancel()">
+            </td>
+            </tr>
             `;
             }
     
@@ -140,24 +160,71 @@ window.onload = function() {
     }
 }
 
-function writeconn(param) {
+function execute(seq, num) {
+    let num = param.get('mednum');
+    writeconn(seq, num, false).then(function(res) {
+        if(res) {
+            location.href = "review.html?mednum="+num;
+        }
+    });
+}
+
+function edit() {
+    let display = document.getElementsByClassName('display');
+    let edit = document.getElementsByClassName('edit');
+    for(let i = 0; i < display.length; i++) {
+        display[i].style.display = 'none';
+    }
+    for(let j = 0; j < edit.length; j++) {
+        edit[i].style.display = 'block';
+    }
+}
+
+function cancel() {
+    let display = document.getElementsByClassName('display');
+    let edit = document.getElementsByClassName('edit');
+    for(let i = 0; i < display.length; i++) {
+        display[i].style.display = 'block';
+    }
+    for(let j = 0; j < edit.length; j++) {
+        edit[i].style.display = 'none';
+    }
+}
+
+function writeconn(seq, num, flag) {
     return new Promise(function (resolve) {
-        let num = param.get('mednum');
+        // let num = param.get('mednum');
         let eval = document.getElementById('evaluate').value;
         let con = document.getElementById('contents').value;
+        let eval2 = document.getElementById('evaluate2').value;
+        let con2 = document.getElementById('contents2').value;
     
-        let url = 'https://112.133.178.18:10201/medicine/review';
-    
-        let data = JSON.stringify({
-            contents : con,
-            evaluate : eval,
-            mednum : num 
-        });	
+        let url = '';
+        let data = '';
+
 
         const xhr = new XMLHttpRequest();
     
-        xhr.open('POST', url, true);
-            
+        if(flag) {
+            url = 'https://112.133.178.18:10201/medicine/review';
+            data = JSON.stringify({
+                contents : con,
+                evaluate : eval,
+                mednum : num 
+            });	
+
+            xhr.open('POST', url, true);
+        } else {
+            url = 'https://112.133.178.18:10201/medicine/review/'+seq;
+            data = JSON.stringify({
+                contents : con2,
+                evaluate : eval2,
+                mednum : num 
+            });	
+
+            xhr.open('PUT', url, true);
+        }
+
         xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
     
         xhr.send(data);
@@ -178,9 +245,9 @@ function writeconn(param) {
     })
 }
 
-function write(param) {
-    let num = param.get('mednum');
-    writeconn(param).then(function(res) {
+function write(num) {
+    // let num = param.get('mednum');
+    writeconn(null, num, true).then(function(res) {
         if(res) {
             location.href = "review.html?mednum="+num;
         }
@@ -198,6 +265,14 @@ function check() {
 function init(param) {
     let mednum = param.get('mednum');
     location.href="review.html?mednum" + mednum;
+}
+
+function excute(seq, num) {
+    modifyComm(seq).then(function (res) {
+        if(res) {
+            location.href="review.js?mednum="+num;
+        }
+    });
 }
 
 function remove(seq, num) {
