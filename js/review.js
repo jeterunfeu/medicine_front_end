@@ -201,8 +201,6 @@ function writeconn(seq, num, flag) {
         // let num = param.get('mednum');
         let eval = document.getElementById('evaluate').value;
         let con = document.getElementById('contents').value;
-        let eval2 = document.getElementById('evaluate2').value;
-        let con2 = document.getElementById('contents2').value;
     
         let url = '';
         let data = '';
@@ -221,6 +219,8 @@ function writeconn(seq, num, flag) {
             xhr.open('POST', url, true);
         } else {
             url = 'https://112.133.178.18:10201/medicine/review/'+seq;
+            let eval2 = document.getElementById('evaluate2').value;
+            let con2 = document.getElementById('contents2').value;
             data = JSON.stringify({
                 contents : con2,
                 evaluate : eval2,
