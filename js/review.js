@@ -4,7 +4,9 @@ window.onload = function() {
     let writeButton = document.getElementById('write');
     let edit = document.getElementsByClassName('edit');
 
-    edit.setAttribute('style', 'display:none');
+    for(let i=0; i <edit.length; i++) {
+        edit[i].setAttribute('style', 'display:none');
+    }
 
     writeButton.addEventListener('click', function() {
         let num = param.get('mednum');
