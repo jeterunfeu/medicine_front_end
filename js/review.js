@@ -57,8 +57,8 @@ window.onload = function() {
                 tag += `<tr class="head">
                 <td>작성아이디 : ${res.data.list[i].memberid}</td>
             </tr>
-            <tr><td><div class="display">${id == res.data.list[i].memberid ? `<input type="button" value="수정" onclick="edit()">` : ''}</div></td>
-            <td>${id == res.data.list[i].memberid ? `<input type="button" value="삭제" onclick="remove('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">` : ''}</td></tr>
+            <tr><td><div class="display">${id == res.data.list[i].memberid ? `<input type="button" value="수정" onclick="edit()">` : ''}</div>
+            ${id == res.data.list[i].memberid ? `<input type="button" value="삭제" onclick="remove('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">` : ''}</td></tr>
             <tr><td><div class="display">별점 : ${res.data.list[i].evaluate}</div>
             <div class="edit">
             <select name="evaluate" id="evaluate2" style="display:none;">
