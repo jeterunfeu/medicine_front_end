@@ -13,41 +13,44 @@ window.onload = function() {
         console.log(res.data.length);
         for(let i = 0; i < res.data.length; i++) {
             tag += `<tr class="head">
-                        <td colspan="2">약제명 : ${res.data[i].medname}</td>
+                        <td colspan="2" class="t">약제명 : ${res.data[i].medname}</td>
                     </tr>
-                    <tr>
-                    <td colspan="2">${res.data[i].picture}</td>
+                    <tr class="t">
+                        <td colspan="2" class="t">
+                            ${res.data[i].picture}
+                        </td>
                     </tr>
-                    <tr>
-                        <td colspan="2">제약회사 : ${res.data[i].medco}</td>
+                    <tr class="t">
+                        <td colspan="2" class="t">제약회사 : ${res.data[i].medco}</td>
                     </tr>
-                    <tr>
-                        <td colspan="2">가격 : ${res.data[i].price}</td>
+                    <tr class="t">
+                        <td colspan="2" class="t">가격 : ${res.data[i].price}</td>
                     </tr>
-                    <tr>
-                        <td>복용법 : ${res.data[i].takemed}</td><td>복용횟수 : ${res.data[i].medcycle}</td>
+                    <tr class="t">
+                        <td class="t">복용법 : ${res.data[i].takemed}</td><td>복용횟수 : ${res.data[i].medcycle}</td>
                     </tr>
-                    <tr>
-                        <td colspan="2">성분 : ${res.data[i].ingredient}</td>
+                    <tr class="t">
+                        <td colspan="2" class="t">성분 : ${res.data[i].ingredient}</td>
                     </tr>
-                    <tr>
-                        <td colspan="2">비고 : ${res.data[i].note}</td>
+                    <tr class="t">
+                        <td colspan="2" class="t">비고 : ${res.data[i].note}</td>
                     </tr>
-                    <tr>
-                    <td><a href="display.html?mednum=${res.data[i].mednum}">약품선택</a></td>
-                    <td>${res.data[i].star} <a href="review.html?mednum=${res.data[i].mednum}">리뷰보기</a></td>
+                    <tr class="t">
+                        <td class="t"><a href="display.html?mednum=${res.data[i].mednum}" class="rink">약품선택</a></td>
+                        <td class="t">${res.data[i].star} <a href="review.html?mednum=${res.data[i].mednum}" class="rink">리뷰보기</a></td>
                     </tr>
                     `;
         }
 
-        page = `<table><tr><td colspan="2">${res.currentPage}/${res.totalPageCount}</td></tr>
-        <tr><td>${res.currentPage <= 1 ? 'X' : `<a href='history.html?page=${res.currentPage - 1}${(type != null && type != "") ? '&type='+type+'&value='+value : ''}'><</a>`}
-        </td><td>${res.currentPage >= res.totalPageCount ? 'X' : `<a href='history.html?page=${res.currentPage + 1}${(type != null && type != "") ? '&type='+type+'&value='+value : ''}'>></a>`}</td></tr>
+        //css 하기 위해서 page로 아이디 지정
+        page = `<table id="page"><tr></tr>
+        <tr><td>${res.currentPage <= 1 ? '◀' : `<a href='history.html?page=${res.currentPage - 1}${(type != null && type != "") ? '&type='+type+'&value='+value : ''}'><</a>`}
+        <td colspan="2">${res.currentPage}/${res.totalPageCount}</td></td><td>${res.currentPage >= res.totalPageCount ? '▶' : `<a href='history.html?page=${res.currentPage + 1}${(type != null && type != "") ? '&type='+type+'&value='+value : ''}'>></a>`}</td></tr>
         </table>`
         table.innerHTML = tag;
         pagination.innerHTML = page;
     });
-
+    
     function comm(param) {
         return new Promise(function (resolve) {
             let url = '';

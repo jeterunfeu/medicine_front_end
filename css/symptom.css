@@ -23,19 +23,44 @@ h2 {
 table {
     border-collapse:collapse;
     margin: auto;
-    border: 1px dotted lightseagreen;
+    border: 1px solid #ddd;
     width: 300px;
 }
+
+.t, .head{
+    border : 1px solid #ddd;
+    padding: 20px;
+}
+
+/* .t:hover{
+    color: #AA39D4;
+} */
 
 #container {
     margin-top: 50px;
 }
 
-tr,td {
+/* tr,td {
 
     border : 1px dotted lightseagreen;
     padding: 20px;
+} */
+
+#page{
+
+    border : 1px dotted white;
+    padding: 20px;
 }
+
+#rink{
+    text-decoration-line: none;
+}
+
+#rink:hover{
+    text-decoration-line: underline;
+    size: 80px;
+}
+
 
 #menu {
     width: 200px;
@@ -57,7 +82,7 @@ tr,td {
 }
 
 .head {
-    background-color:blanchedalmond;
+    background-color:#f399a2;
 }
 .blank {
     border-left: none;

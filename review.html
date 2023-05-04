@@ -29,7 +29,6 @@
         <br>
         <div id="pagination"></div> <br>
         <table id="writetable">
-            <tr><td colspan="2"><input type="button" value="쓰기" id="write"></td></tr>
             <tr>
                 <td>별점</td>
                 <td>
@@ -41,9 +40,14 @@
                         <option>5</option>
                     </select>
                 </td>
+            <tr>
+                <td colspan="2">내용</td>
             </tr>
-            <tr><td colspan="2">내용</td></tr>
-            <tr><td colspan="2"><textarea name="contents" id="contents"></textarea></td></tr>
+            <tr>
+                <td colspan="2"><textarea name="contents" id="contents" rows="13" cols="40"></textarea></td>
+            </tr>
+            <tr><td colspan="2"><input type="button" value="리뷰저장" id="write"></td>
+            </tr>
         </table> <br>
         <div id="menu"> 뒤로 가기 </div>
     </div>

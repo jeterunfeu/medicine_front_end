@@ -22,19 +22,21 @@ window.onload = function() {
         let page = '';
 
         for(let i = 0; i < res.data.length; i++) {
-            tag += `<tr>
+            // css 하기 위해서 t로 아이디 지정
+            tag += `<tr class="t">
             <td class="head">부위 : ${res.data[i].signpart}</td>
             </tr>
             <tr>
-            <td>증상 : ${res.data[i].signfirst}</td>
+            <td class="t">증상 : ${res.data[i].signfirst}</td>
             </tr>
-            <tr>
-            <td>세부 증상 : <a href='medicine.html?signpart=${res.data[i].signpart}&signfirst=${res.data[i].signfirst}&signsecond=${res.data[i].signsecond}'>
-            ${res.data[i].signsecond}</a></td></tr>`;
+            <tr class="t">
+            <td class="t">세부 증상 : <a href='medicine.html?signpart=${res.data[i].signpart}&signfirst=${res.data[i].signfirst}&signsecond=${res.data[i].signsecond}' id=rink>
+            ${res.data[i].signsecond}</a>
+            </td></tr>`;
         }
-        page = `<table><tr><td colspan="2">${res.currentPage}/${res.totalPageCount}</td></tr>
-        <tr><td>${res.currentPage <= 1 ? 'X' : `<a href='history.html?page=${res.currentPage - 1}${(type != null && type != "") ? '&type='+type+'&value='+value : ''}'><</a>`}
-        </td><td>${res.currentPage >= res.totalPageCount ? 'X' : `<a href='history.html?page=${res.currentPage + 1}${(type != null && type != "") ? '&type='+type+'&value='+value : ''}'>></a>`}</td></tr>
+        //css 하기 위해서 page로 아이디 지정
+        page = `<table id="page"><tr><td>${res.currentPage <= 1 ? '◀' : `<a href='history.html?page=${res.currentPage - 1}${(type != null && type != "") ? '&type='+type+'&value='+value : ''}'><</a>`}
+        </td><td colspan="2">${res.currentPage}/${res.totalPageCount}</td><td>${res.currentPage >= res.totalPageCount ? '▶' : `<a href='history.html?page=${res.currentPage + 1}${(type != null && type != "") ? '&type='+type+'&value='+value : ''}'>></a>`}</td></tr>
         </table>`
 
         table.innerHTML = tag;

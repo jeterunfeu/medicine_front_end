@@ -18,18 +18,46 @@
 
 table {
     border-collapse: collapse;
-    border: 1px dotted blue;
+    border: 1px solid #ddd;
     margin:auto;
     width: 300px;
+    
 }
 
-tr,td{
-    border: 1px dotted blue;
+.t, .head{
+    border : 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
+
+/* padding: 10px;
+		color: #168;
+		border-bottom: 1px solid #ddd;
+		text-align: center; */
+
+/* tr,td{
+    border: 1px solid #ddd;
+} */
 
 .head{
-    background-color: aquamarine;
+    background-color: #f399a2;
 }
+
+#page{
+
+    border : 1px dotted white;
+    padding: 20px;
+}
+
+
+.rink{
+    text-decoration-line: none;
+}
+
+.rink:hover{
+    text-decoration-line: underline;
+    size: 80px;
+}
+
 
 #container {
    margin: auto;

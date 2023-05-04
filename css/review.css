@@ -18,13 +18,17 @@
 
 table {
     border-collapse: collapse;
-    border: 1px dotted blue;
+    border:1px solid #ddd;
     margin:auto;
     width: 300px;
 }
 
-tr,td{
-    border: 1px dotted blue;
+td{
+    padding: 10px;
+		color: black;
+        font-weight: bolder;
+		border-bottom: 1px solid #ddd;
+		text-align: center;
 }
 
 .head{
