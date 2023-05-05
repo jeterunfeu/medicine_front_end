@@ -2,6 +2,15 @@ window.onload = function() {
     let param = new URLSearchParams(location.search);
     let initButton = document.getElementById('initbutton');
     let writeButton = document.getElementById('write');
+    let searchButton = document.getElementById('searchButton');
+
+    searchButton.addEventListener('click', function() {
+        let type = document.getElementById('searchType').value;
+        let searchText = document.getElementById('searchText').value;
+        if(check()) {
+            location.href = "review.html?mednum="+param.get('mednum')+"&type="+type+"&value="+searchText;
+        }
+    });
 
     writeButton.addEventListener('click', function() {
         let num = param.get('mednum');
