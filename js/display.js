@@ -14,7 +14,7 @@ window.onload = function() {
         let symptom = document.getElementById('symptom');
         let tag = `<table id="medicinetable">
                     <tr>
-                    <td colspan="2">${data.picture}</td>
+                    <td colspan="2"><img src='./asset/image/${data.picture}' width="50" height="50"></td>
                     </tr>  
                   <tr class="head">
                     <th>약제명</th><td>${data.medname}</td>

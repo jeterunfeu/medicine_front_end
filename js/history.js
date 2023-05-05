@@ -17,7 +17,7 @@ window.onload = function() {
                         <td colspan="2">약제명 : ${res.data[i].medname}</td>
                     </tr>
                     <tr>
-                    <td colspan="2">${res.data[i].picture}</td>
+                    <td colspan="2"><img src='./asset/image/${res.data[i].picture}' width="50" height="50"></td>
                     </tr>
                     <tr>
                         <td colspan="2">제약회사 : ${res.data[i].medco}</td>

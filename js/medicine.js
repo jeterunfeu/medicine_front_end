@@ -17,7 +17,7 @@ window.onload = function() {
                     </tr>
                     <tr class="t">
                         <td colspan="2" class="t">
-                            ${res.data[i].picture}
+                            <img src='./asset/image/${res.data[i].picture}' width="50" height="50">
                         </td>
                     </tr>
                     <tr class="t">
