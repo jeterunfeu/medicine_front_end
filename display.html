@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="small_logo">
-        <img src="asset/image/small_logo.jpg" id="logo_small" onclick="goMain();">
+        <img src="asset/image/small_logo.jpg" id="logo_small" onerror=this.src="./asset/image/no_image.png" onclick="goMain();">
     </div>
 
     <div id="container">
@@ -20,16 +20,16 @@
         <div id="bodypart">
             <table id="bodytable">
                 <tr>
-                    <td><img src="./asset/image/head.png" id="head"></td>
+                    <td><img src="./asset/image/head.png" onerror=this.src="./asset/image/no_image.png" id="head"></td>
                 </tr>
                 <tr>
-                    <td><img src="./asset/image/arm.png" id="arm"></td>
+                    <td><img src="./asset/image/arm.png"  onerror=this.src="./asset/image/no_image.png" id="arm"></td>
                 </tr>
                 <tr>
-                    <td><img src="./asset/image/stomach.png" id="stomach"></td>
+                    <td><img src="./asset/image/stomach.png" onerror=this.src="./asset/image/no_image.png" id="stomach"></td>
                 </tr>
                 <tr>
-                    <td><img src="./asset/image/leg.png" id="leg"></td>
+                    <td><img src="./asset/image/leg.png" onerror=this.src="./asset/image/no_image.png" id="leg"></td>
                 </tr>
             </table>
         <div id="symptom">
