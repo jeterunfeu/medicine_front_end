@@ -5,6 +5,7 @@ window.onload = function() {
     let duplicatedalert = document.getElementById('duplicatedalert');
     let duplication = document.getElementById('checkbutton');
     let memberid = document.getElementById('memberid');
+    memberid.readonly=true;
     let join = document.getElementById('join');
     let title = document.getElementById('title');
 
@@ -13,7 +14,6 @@ window.onload = function() {
             if(data) {
                 duplication.setAttribute('style', 'display:none');
                 duplicatedalert.setAttribute('style', 'display:none');
-                memberid.readonly=false;
                 join.value = "수정하기";
                 title.innerText = "회원정보 수정";
             }
@@ -21,7 +21,7 @@ window.onload = function() {
     } else {
         duplication.setAttribute('style', 'display:block');
         duplicatedalert.setAttribute('style', 'display:block');
-        memberid.readonly=true;
+        memberid.readonly=false;
         join.value = "가입하기";
         title.innerText = "회원가입";
     }
