@@ -13,7 +13,7 @@ window.onload = function() {
             if(data) {
                 duplication.setAttribute('style', 'display:none');
                 duplicatedalert.setAttribute('style', 'display:none');
-                memberid.setAttribute('readonly', true);
+                memberid.readonly=true;
                 join.value = "수정하기";
                 title.innerText = "회원정보 수정";
             }
@@ -21,7 +21,7 @@ window.onload = function() {
     } else {
         duplication.setAttribute('style', 'display:block');
         duplicatedalert.setAttribute('style', 'display:block');
-        memberid.setAttribute('readonly', false);
+        memberid.readonly=false;
         join.value = "가입하기";
         title.innerText = "회원가입";
     }
