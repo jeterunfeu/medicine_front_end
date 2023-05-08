@@ -16,8 +16,8 @@
     </div>
 
     <div id="str">
-    <p>약품선택을 클릭하시면 해당 약품명세서를 확인하실 수 있습니다.</p>
-    <p>리뷰보기을 클릭하시면 다양한 리뷰를 확인하실 수 있습니다.</p>
+    <p>薬品選択をクリックすると該当な薬品明細書を確認できます。</p>
+    <p>レビューをクリックすると様々なレビューが見れます。</p>
     </div>
 
     <div id="container">
@@ -25,15 +25,15 @@
             <form action="medicine.html" method="get" onsubmit="return check()">
                 
             <select id="searchType" name="type">
-                <option value="medname">약제명</option>
-                <option value="medco">제조회사</option>
-                <option value="takemed">복용법</option>
-                <option value="medcycle">복용주기</option>
-                <option value="ingredient">성분</option>
+                <option value="medname">薬剤名</option>
+                <option value="medco">製造会社</option>
+                <option value="takemed">服用法</option>
+                <option value="medcycle">服用周期</option>
+                <option value="ingredient">成分</option>
             </select>
             <input type="text" name="value" id="searchText">
-            <input type="submit" value="검색">
-            <input type="button" value="초기화" onclick="init()">
+            <input type="submit" value="検索">
+            <input type="button" value="リセット" onclick="init()">
         </form>
         </div>
         <br>
@@ -41,7 +41,7 @@
         </table>
         <br>
         <div id="pagination"></div> <br>
-        <div id="menu"> 메뉴 화면 </div>
+        <div id="menu"> メニュー </div>
     </div>
     
 </body>

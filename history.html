@@ -18,15 +18,15 @@
         <div id="search">
             <form action="history.html" method="get" onsubmit="return check()">
             <select id="searchType" name="type">
-                <option value="medname">약제명</option>
-                <option value="medco">제조회사</option>
-                <option value="signpart">증상부위</option>
-                <option value="signfirst">주요증상</option>
-                <option value="signsecond">세부증상</option>
+                <option value="medname">薬剤名</option>
+                <option value="medco">製造会社</option>
+                <option value="signpart">症状部位</option>
+                <option value="signfirst">主な症状</option>
+                <option value="signsecond">細部症状</option>
             </select>
             <input type="text" name="value" id="searchText">
-            <input type="submit" value="검색">
-            <input type="button" value="초기화" onclick="init()">
+            <input type="submit" value="検索">
+            <input type="button" value="リセット" onclick="init()">
         </form>
         </div>
         <br>
@@ -34,7 +34,7 @@
         </table>
         <br>
         <div id="pagination"></div> <br>
-        <div id="menu"> 메뉴 화면 </div>
+        <div id="menu"> メニュー </div>
     </div>
 </body>
 </html>
