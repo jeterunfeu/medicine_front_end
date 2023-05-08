@@ -27,7 +27,7 @@ window.onload = function() {
                         <td colspan="2" class="t">価格 : ${res.data[i].price}</td>
                     </tr>
                     <tr class="t">
-                        <td class="t">服用法 : ${res.data[i].takemed}</td><td>복용횟수 : ${res.data[i].medcycle}</td>
+                        <td class="t">服用法 : ${res.data[i].takemed}</td><td>服用回数 : ${res.data[i].medcycle}</td>
                     </tr>
                     <tr class="t">
                         <td colspan="2" class="t">成分 : ${res.data[i].ingredient}</td>
