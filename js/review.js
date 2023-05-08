@@ -36,7 +36,7 @@ window.onload = function() {
             let tag = '';
             let page = '';
             medtag += `<tr class="head">
-            <td colspan="2">약제명 : ${res.data.medname}</td>
+            <td colspan="2">薬剤名 : ${res.data.medname}</td>
         </tr>
         <tr>
         <td colspan="2"><img src='./asset/image/${res.data.picture}' width="50" onerror=this.src="./asset/image/no_image.png" height="50"></td>
@@ -45,30 +45,30 @@ window.onload = function() {
         <td colspan="2">별점 : ${res.data.star}</td>
         </tr>
         <tr>
-            <td colspan="2">제약회사 : ${res.data.medco}</td>
+            <td colspan="2">製造会社 : ${res.data.medco}</td>
         </tr>
         <tr>
-            <td colspan="2">가격 : ${res.data.price}</td>
+            <td colspan="2">価格 : ${res.data.price}</td>
         </tr>
         <tr>
-            <td>복용법 : ${res.data.takemed}</td><td>복용횟수 : ${res.data.medcycle}</td>
+            <td>服用法 : ${res.data.takemed}</td><td>服用回数 : ${res.data.medcycle}</td>
         </tr>
         <tr>
-            <td colspan="2">성분 : ${res.data.ingredient}</td>
+            <td colspan="2">成分 : ${res.data.ingredient}</td>
         </tr>
         <tr>
-            <td colspan="2">비고 : ${res.data.note}</td>
+            <td colspan="2">備考 : ${res.data.note}</td>
         </tr>
         `;
         medicineTable.innerHTML = medtag;
     
             for(let i = 0; i < res.data.list.length; i++) {
                 tag += `<tr class="head">
-                <td>작성아이디 : ${res.data.list[i].memberid}</td>
+                <td>作成ID : ${res.data.list[i].memberid}</td>
             </tr>
-            <tr><td><div class="display">${id == res.data.list[i].memberid ? `<input type="button" value="수정" onclick="edit()">` : ''}</div>
-            ${id == res.data.list[i].memberid ? `<input type="button" value="삭제" onclick="remove('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">` : ''}</td></tr>
-            <tr><td><div class="display">별점 : ${res.data.list[i].evaluate}</div>
+            <tr><td><div class="display">${id == res.data.list[i].memberid ? `<input type="button" value="修正" onclick="edit()">` : ''}</div>
+            ${id == res.data.list[i].memberid ? `<input type="button" value="削除" onclick="remove('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">` : ''}</td></tr>
+            <tr><td><div class="display">評点 : ${res.data.list[i].evaluate}</div>
             <div class="edit">
             <select name="evaluate" id="evaluate2">
             <option value="1" ${res.data.list[i].evaluate == '1' ? 'selected' : ''}>1</option>
@@ -85,8 +85,8 @@ window.onload = function() {
             </td></tr>
             <tr class="edit">
             <td colspan="2">
-                <input type="button" value="수정 실행" onclick="execute('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">
-                <input type="button" value="취소" onclick="cancel()">
+                <input type="button" value="修正実行" onclick="execute('${res.data.list[i].reviewnum}', '${res.data.list[i].mednum}')">
+                <input type="button" value="キャンセル" onclick="cancel()">
             </td>
             </tr>
             `;
@@ -246,10 +246,10 @@ function writeconn(seq, num, flag) {
         xhr.onload = function () {
             if (xhr.status == 200) {
                 if(xhr.responseText == 'true') {
-                    alert('성공');
+                    alert('成功');
                     resolve(true);
                 } else {
-                    alert('실패');
+                    alert('失敗');
                     resolve(false);
                 }
             } else {

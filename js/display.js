@@ -17,18 +17,18 @@ window.onload = function() {
                     <td colspan="2"><img src='./asset/image/${data.picture}' onerror=this.src="./asset/image/no_image.png" width="50" height="50"></td>
                     </tr>  
                   <tr class="head">
-                    <th>약제명</th><td>${data.medname}</td>
+                    <th>薬剤名</th><td>${data.medname}</td>
                   </tr>
 
                   <tr>
-                    <th>제약회사</th><td>${data.medco}</td>
+                    <th>製造会社</th><td>${data.medco}</td>
                   </tr>
                   </table>
                  `;
         let tag2 = `<table id="symptomtable">
-                    <tr><th>증상 부위</th><td>${data.signpart}</td></tr>
-                    <tr><th>대표 증상</th><td>${data.signfirst}</td></tr>
-                    <tr><th>세부 증상</th><td>${data.signsecond}</td></tr>
+                    <tr><th>部位</th><td>${data.signpart}</td></tr>
+                    <tr><th>症状</th><td>${data.signfirst}</td></tr>
+                    <tr><th>詳細な症状</th><td>${data.signsecond}</td></tr>
                     </table>
                     `;
         switch(data.signpart) {
@@ -64,15 +64,15 @@ window.onload = function() {
             let history = document.getElementById('history');
             let tag = `<table id="historytable">
                                 <tr>
-                                <th>기존병력</th>
+                                <th>既存病歴</th>
                                 <td>${res.history != null ? res.history : '없음'}</td>
                                 </tr>
                                 <tr>
-                                <th>복용중인약</th>
+                                <th>服用薬</th>
                                 <td>${res.medicine != null ? res.medicine : '없음'}</td>
                                 </tr>
                                 <tr>
-                                <th>알레르기</th>
+                                <th>アレルギー</th>
                                 <td>${res.allergy != null ? res.allergy : '없음'}</td>
                                 </tr>
                         </table>`;

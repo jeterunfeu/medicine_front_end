@@ -14,29 +14,29 @@ window.onload = function() {
         let page = '';
         for(let i = 0; i < res.data.length; i++) {
             tag += `<tr class="head">
-                        <td colspan="2">약제명 : ${res.data[i].medname}</td>
+                        <td colspan="2">薬剤名 : ${res.data[i].medname}</td>
                     </tr>
                     <tr>
                     <td colspan="2"><img src='./asset/image/${res.data[i].picture}' width="50" onerror=this.src="./asset/image/no_image.png" height="50"></td>
                     </tr>
                     <tr>
-                        <td colspan="2">제약회사 : ${res.data[i].medco}</td>
+                        <td colspan="2">製造会社 : ${res.data[i].medco}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">증상부위 : ${res.data[i].signpart}</td>
+                        <td colspan="2">部位 : ${res.data[i].signpart}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">주요증상 : ${res.data[i].signfirst}</td>
+                        <td colspan="2">症状 : ${res.data[i].signfirst}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">세부증상 : ${res.data[i].signsecond}</td>
+                        <td colspan="2">詳細な症状 : ${res.data[i].signsecond}</td>
                     </tr>
                     <tr>
-                    <td colspan="2">제출일자 : ${res.data[i].inputdate}</td>
+                    <td colspan="2">提出日付 : ${res.data[i].inputdate}</td>
                     </tr>
                     <tr>
-                    <td><a href="display.html?mednum=${res.data[i].mednum}">약품선택</a></td>
-                    <td>${res.data[i].star} <a href="review.html?mednum=${res.data[i].mednum}">리뷰보기</a></td>
+                    <td><a href="display.html?mednum=${res.data[i].mednum}">薬品選択</a></td>
+                    <td>${res.data[i].star} <a href="review.html?mednum=${res.data[i].mednum}">レビュー</a></td>
                     </tr>
                     `;
         }
@@ -107,7 +107,7 @@ window.onload = function() {
 function check() {
     let box = document.getElementById('searchText').value;
     if(box == '' || box == null) {
-        alert("값을 입력해 주세요");
+        alert("値を入力してください");
         return false;
     }
     return true;

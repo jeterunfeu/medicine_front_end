@@ -24,13 +24,13 @@ window.onload = function() {
         for(let i = 0; i < res.data.length; i++) {
             // css 하기 위해서 t로 아이디 지정
             tag += `<tr class="t">
-            <td class="head">부위 : ${res.data[i].signpart}</td>
+            <td class="head">部位 : ${res.data[i].signpart}</td>
             </tr>
             <tr>
-            <td class="t">증상 : ${res.data[i].signfirst}</td>
+            <td class="t">症状 : ${res.data[i].signfirst}</td>
             </tr>
             <tr class="t">
-            <td class="t">세부 증상 : <a href='medicine.html?signpart=${res.data[i].signpart}&signfirst=${res.data[i].signfirst}&signsecond=${res.data[i].signsecond}' id=rink>
+            <td class="t">詳細な症状 : <a href='medicine.html?signpart=${res.data[i].signpart}&signfirst=${res.data[i].signfirst}&signsecond=${res.data[i].signsecond}' id=rink>
             ${res.data[i].signsecond}</a>
             </td></tr>`;
         }
@@ -101,7 +101,7 @@ function check() {
     let type = document.getElementById('searchType').value;
     let box = document.getElementById('searchText').value;
     if(box == '' || box == null) {
-        alert("값을 입력해 주세요");
+        alert("値を入力してください。");
         return;
     }
     if(part == '' || part == null) {

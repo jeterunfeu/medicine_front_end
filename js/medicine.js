@@ -13,7 +13,7 @@ window.onload = function() {
         console.log(res.data.length);
         for(let i = 0; i < res.data.length; i++) {
             tag += `<tr class="head">
-                        <td colspan="2" class="t">약제명 : ${res.data[i].medname}</td>
+                        <td colspan="2" class="t">薬剤名 : ${res.data[i].medname}</td>
                     </tr>
                     <tr class="t">
                         <td colspan="2" class="t">
@@ -21,23 +21,23 @@ window.onload = function() {
                         </td>
                     </tr>
                     <tr class="t">
-                        <td colspan="2" class="t">제약회사 : ${res.data[i].medco}</td>
+                        <td colspan="2" class="t">製造会社 : ${res.data[i].medco}</td>
                     </tr>
                     <tr class="t">
-                        <td colspan="2" class="t">가격 : ${res.data[i].price}</td>
+                        <td colspan="2" class="t">価格 : ${res.data[i].price}</td>
                     </tr>
                     <tr class="t">
-                        <td class="t">복용법 : ${res.data[i].takemed}</td><td>복용횟수 : ${res.data[i].medcycle}</td>
+                        <td class="t">服用法 : ${res.data[i].takemed}</td><td>복용횟수 : ${res.data[i].medcycle}</td>
                     </tr>
                     <tr class="t">
-                        <td colspan="2" class="t">성분 : ${res.data[i].ingredient}</td>
+                        <td colspan="2" class="t">成分 : ${res.data[i].ingredient}</td>
                     </tr>
                     <tr class="t">
-                        <td colspan="2" class="t">비고 : ${res.data[i].note}</td>
+                        <td colspan="2" class="t">備考 : ${res.data[i].note}</td>
                     </tr>
                     <tr class="t">
-                        <td class="t"><a href="display.html?mednum=${res.data[i].mednum}" class="rink">약품선택</a></td>
-                        <td class="t">${res.data[i].star} <a href="review.html?mednum=${res.data[i].mednum}" class="rink">리뷰보기</a></td>
+                        <td class="t"><a href="display.html?mednum=${res.data[i].mednum}" class="rink">薬品選択</a></td>
+                        <td class="t">${res.data[i].star} <a href="review.html?mednum=${res.data[i].mednum}" class="rink">レビュー</a></td>
                     </tr>
                     `;
         }
@@ -120,7 +120,7 @@ window.onload = function() {
 function check() {
     let box = document.getElementById('searchText').value;
     if(box == '' || box == null) {
-        alert("값을 입력해 주세요");
+        alert("値を入力してください");
         return false;
     }
     return true;

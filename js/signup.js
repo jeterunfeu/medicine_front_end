@@ -14,16 +14,16 @@ window.onload = function() {
             if(data) {
                 duplication.setAttribute('style', 'display:none');
                 duplicatedalert.setAttribute('style', 'display:none');
-                join.value = "수정하기";
-                title.innerText = "회원정보 수정";
+                join.value = "情報修正";
+                title.innerText = "個人情報の修正";
             }
         });
     } else {
         duplication.setAttribute('style', 'display:block');
         duplicatedalert.setAttribute('style', 'display:block');
         memberid.readOnly=false;
-        join.value = "가입하기";
-        title.innerText = "회원가입";
+        join.value = "加入";
+        title.innerText = "会員加入";
     }
 
     join.addEventListener('click', function(){
@@ -50,14 +50,14 @@ function duplicatedCheck() {
     let dalert = document.getElementById('duplicatedalert');
 
     if(id.value == null || id.value == '') {
-        alert('아이디를 입력해주세요');
+        alert('IDを入力してください。');
         return;
     }
     checkComm(id.value).then(function(res){
         if(res) {
-            dalert.innerText="사용가능한 아이디입니다.";
+            dalert.innerText="使用できるIDです。";
         } else {
-            dalert.innerText="사용불가능한 아이디입니다.";
+            dalert.innerText="使用できないIDです。";
             id.value = "";
         }
     });
@@ -93,10 +93,10 @@ function checkComm(id) {
         xhr.onload = function () {
             if (xhr.status == 200) {
                 if(xhr.responseText == 'true') {
-                    alert('성공');
+                    alert('成功');
                     resolve(true);
                 } else {
-                    alert('실패');
+                    alert('失敗');
                     resolve(false);
                 }
             } else {
@@ -179,14 +179,14 @@ function comm(type) {
             xhr.onload = function () {
                 if (xhr.status == 200) {
                     if(xhr.responseText == 'true') {
-                        alert('성공');
+                        alert('成功');
                         resolve(true);
                     } else {
-                        alert('실패');
+                        alert('失敗');
                         resolve(false);
                     }
                 } else {
-                    console.log('failed')
+                    console.log('failed');
                 }
             }
         }
@@ -205,52 +205,52 @@ function check(type) {
         
     
         if(memberid.value == "" || memberid.value == null){
-            alert('아이디를 입력하세요.');
+            alert('IDを入力してください。');
             memberid.focus();
             resolve(false);
             return;
         }
     if(type == '' || type == null) {
         if(memberpw.value == "" || memberpw.value == null){
-            alert('비밀번호를 입력하세요.');
+            alert('パスワードを入力してください。');
             memberpw.focus();
             resolve(false);
             return;
         }
         let duplitext = document.getElementById('duplicatedalert');
-        if(!duplitext.innerText.includes('사용가능')){
-            alert('아이디 중복검사를 해주세요.');
+        if(!duplitext.innerText.includes('できる')){
+            alert('IDの重複検査をしてください。');
             address.focus();
             resolve(false);
             return;
         }
     }
     if(memberpw.value != memberpw2.value){
-        alert('비밀번호가 일치하지 않습니다.');
+        alert('パスワードが一致しません。');
         memberpw2.focus();
         resolve(false);
         return;
     }
         if(membername.value == "" || membername.value == null){
-            alert('이름을 입력하세요.');
+            alert('名前を入力してください。');
             membername.focus();
             resolve(false);
             return;
         }
         if(email.value == "" || email.value == null){
-            alert('이메일을 입력하세요.');
+            alert('メールを入力してください。');
             email.focus();
             resolve(false);
             return;
         }
         if(phone.value == "" || phone.value == null){
-            alert('핸드폰 번호를 입력하세요.');
+            alert('携帯番号を入力してください。');
             phone.focus();
             resolve(false);
             return;
         }
         if(address.value == "" || address.value == null){
-            alert('주소를 입력하세요.');
+            alert('住所を入力してください。');
             address.focus();
             resolve(false);
             return;
